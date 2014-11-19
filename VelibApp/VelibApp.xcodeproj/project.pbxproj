@@ -24,6 +24,7 @@
 		9CFA20531A1A48470077C590 /* InfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20521A1A48470077C590 /* InfosViewController.m */; };
 		9CFA20551A1A48CE0077C590 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFA20541A1A48CE0077C590 /* MapKit.framework */; };
 		9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */; };
+		F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F421B9911A1CA3F1009A72B1 /* StationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		9CFA20541A1A48CE0077C590 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CFA20571A1A53CD0077C590 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
 		9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
+		F421B9901A1CA3F1009A72B1 /* StationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationManager.h; sourceTree = "<group>"; };
+		F421B9911A1CA3F1009A72B1 /* StationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 			children = (
 				9CC10E931A1B62160043D745 /* Station.h */,
 				9CC10E941A1B62160043D745 /* Station.m */,
+				F421B9901A1CA3F1009A72B1 /* StationManager.h */,
+				F421B9911A1CA3F1009A72B1 /* StationManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
 				9CC10E951A1B62160043D745 /* Station.m in Sources */,
+				F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */,
 				9CFA20501A1A47570077C590 /* MapViewController.m in Sources */,
 				9CFA201E1A1A44FA0077C590 /* main.m in Sources */,
 				9CFA204D1A1A45F50077C590 /* StationsListViewController.m in Sources */,
