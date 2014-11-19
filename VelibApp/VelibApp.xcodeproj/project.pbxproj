@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36906AA71A1CAB9C00F3E122 /* MaMaison.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 36906AA61A1CAB9C00F3E122 /* MaMaison.gpx */; };
+		9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35718C1A1CE6D200F758E2 /* StationService.m */; };
 		9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */; };
 		9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE613E1A1A8C750030773B /* PageContentViewController.m */; };
 		9CC10E951A1B62160043D745 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC10E941A1B62160043D745 /* Station.m */; };
@@ -40,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		36906AA61A1CAB9C00F3E122 /* MaMaison.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MaMaison.gpx; sourceTree = "<group>"; };
+		9C35718B1A1CE6D200F758E2 /* StationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationService.h; sourceTree = "<group>"; };
+		9C35718C1A1CE6D200F758E2 /* StationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationService.m; sourceTree = "<group>"; };
+		9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDefines.h; sourceTree = "<group>"; };
 		9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageViewController.h; path = ViewControllers/PageViewController.h; sourceTree = "<group>"; };
 		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ViewControllers/PageViewController.m; sourceTree = "<group>"; };
 		9CBE613D1A1A8C750030773B /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -95,6 +99,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C3571871A1CE67600F758E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C35718B1A1CE6D200F758E2 /* StationService.h */,
+				9C35718C1A1CE6D200F758E2 /* StationService.m */,
+				9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9CC10E921A1B61F80043D745 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +151,7 @@
 		9CFA201A1A1A44FA0077C590 /* VelibApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C3571871A1CE67600F758E2 /* Services */,
 				9CC10E961A1B90C90043D745 /* Annotations */,
 				9CC10E921A1B61F80043D745 /* Models */,
 				9CFA20561A1A53B70077C590 /* Cells */,
@@ -319,6 +334,7 @@
 				9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */,
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
+				9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
 				9CC10E951A1B62160043D745 /* Station.m in Sources */,
 				F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */,

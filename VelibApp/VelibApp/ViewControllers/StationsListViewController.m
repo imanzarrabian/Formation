@@ -11,14 +11,11 @@
 #import "StationTableViewCell.h"
 #import "Station.h"
 #import "StationManager.h"
-
-#define API_KEY @"cd982b2f6008d5560b48a2d31cb6d3ad44f11fca"
-#define API_BASE_URL @"https://api.jcdecaux.com"
-#define API_CONTRACT_NAME @"paris"
+#import "ServicesDefines.h"
+#import "StationService.h"
 
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
-@property (nonatomic, strong) NSMutableArray *stationMutableArray;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
@@ -28,19 +25,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // API call
-    [self getStationsFromAPI];
-    
-   // [self createFakeData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
 }
 
-- (void)createFakeData {
-    self.stationArray = [StationManager stations];
+- (void)stationsReceived:(NSNotification *)notification {
+    if (!notification.userInfo[@"error"]) {
+        if (notification.userInfo[@"stations_list"]) {
+            self.stationArray = notification.userInfo[@"stations_list"];
+            NSLog(@"STATION count %ld ",[self.stationArray count]);
+        }
+    }
+    else {
+      //Handle error
+    }
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[[StationService alloc] init] getStationsFromAPI];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -49,12 +57,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.stationMutableArray count];
+    return [self.stationArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"stationCell" forIndexPath:indexPath];
-    Station *currentStation = self.stationMutableArray[indexPath.row];
+    Station *currentStation = self.stationArray[indexPath.row];
     
 
     cell.stationName.text = currentStation.name;
@@ -72,14 +80,6 @@
 }
 
 
-#pragma mark - Lazy loader
-- (NSMutableArray *)stationMutableArray {
-    if (!_stationMutableArray) {
-        _stationMutableArray = [NSMutableArray new];
-    }
-    return _stationMutableArray;
-}
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
@@ -89,53 +89,10 @@
                 
                 UITableViewCell *selectedCell = (UITableViewCell *)sender;
                 NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
-                stationDetailVC.station = self.stationMutableArray[indexPath.row];
+                stationDetailVC.station = self.stationArray[indexPath.row];
             }
         }
     }
 }
-
-- (void)getStationsFromAPI {
-    NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contrat=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
-            completionHandler:^(NSData *data,
-                                NSURLResponse *response,
-                                NSError *error) {
-                // init content
-                self.stationMutableArray = [NSMutableArray arrayWithArray:[self buildStationsListFromJSONData:data]];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView reloadData];
-                });
-            }];
-    [task resume];
-}
-
-- (NSArray *)buildStationsListFromJSONData:(NSData*)data {
-    NSArray *stationsArrayFromJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    
-    if (!stationsArrayFromJSON) {
-        [NSException raise:@"JSON parsing error" format:@"Impossible to parse %@", data.description];
-    }
-    
-    if ([stationsArrayFromJSON isKindOfClass:[NSArray class]]) {
-        NSMutableArray *stations = [[NSMutableArray alloc] init];
-        for (NSDictionary * station in stationsArrayFromJSON) {
-            Station *newStation = [[Station alloc] init];
-            [newStation fillWithHash:station];
-            
-            [stations addObject:newStation];
-        }
-        return stations;
-    }
-    
-    return nil;
-    
-    
-    
-}
-
 
 @end

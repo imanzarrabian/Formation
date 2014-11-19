@@ -12,7 +12,8 @@
 #import "StationAnnotation.h"
 #import "Station.h"
 #import "StationDetailViewController.h"
-
+#import "StationService.h"  
+#import "ServicesDefines.h"
 
 #define MINIMUM_ZOOM_ARC 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
 #define ANNOTATION_REGION_PAD_FACTOR 1.15
@@ -31,9 +32,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self createFakeData];
+
+    [[[StationService alloc] init] getStationsFromAPI];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
+
+    
+   }
+
+- (void)reloadMapData {
     //Delay en utilisant GCD
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(),^{
         self.locationManager = [[CLLocationManager alloc] init];
@@ -41,10 +48,10 @@
         if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
             //to be determined
             /*NSLog(@"I SAID FUCK NO !!!");
-            self.warningViewBottomConstraint.constant = 0.0;
-            [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:3 options:0 animations:^{
-                [self.view layoutIfNeeded];
-            } completion:nil];*/
+             self.warningViewBottomConstraint.constant = 0.0;
+             [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:3 options:0 animations:^{
+             [self.view layoutIfNeeded];
+             } completion:nil];*/
         }
         else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
             if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
@@ -64,7 +71,9 @@
         [self setStationAnnotationOnMap];
         [self setZoomOnMapAoundStationCoord];
     });
+
 }
+
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
@@ -153,9 +162,6 @@
     [self performSegueWithIdentifier:@"DetailsStation" sender:annotation.station];
 }
 
-- (void)createFakeData {
-    self.stationArray = [StationManager stations];
-}
 
 - (IBAction)goToListVC:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -179,6 +185,20 @@
         }
     }
 }
+
+- (void)stationsReceived:(NSNotification *)notification {
+    if (!notification.userInfo[@"error"]) {
+        if (notification.userInfo[@"stations_list"]) {
+            self.stationArray = notification.userInfo[@"stations_list"];
+            NSLog(@"STATION count %ld ",[self.stationArray count]);
+        }
+    }
+    else {
+        //Handle error
+    }
+    [self reloadMapData];
+}
+
 
 
 @end
