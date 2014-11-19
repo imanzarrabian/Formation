@@ -11,6 +11,10 @@
 #import "StationTableViewCell.h"
 #import "Station.h"
 
+#define API_KEY @"cd982b2f6008d5560b48a2d31cb6d3ad44f11fca"
+#define API_BASE_URL @"https://api.jcdecaux.com"
+#define API_CONTRACT_NAME @"paris"
+
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *stationArray;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -21,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // API call
+    [self getStationsFromAPI];
+    
     [self createFakeData];
 }
 
@@ -92,5 +99,19 @@
         }
     }
 }
+
+- (void)getStationsFromAPI {
+    NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contrat=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                // handle response
+                NSLog(@"%@", data);
+            }] resume];
+}
+
 
 @end
