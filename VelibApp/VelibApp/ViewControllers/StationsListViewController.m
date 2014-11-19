@@ -28,7 +28,7 @@
     // API call
     [self getStationsFromAPI];
     
-    [self createFakeData];
+   // [self createFakeData];
 }
 
 - (void)createFakeData {
@@ -108,9 +108,35 @@
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                // handle response
-                NSLog(@"%@", data);
+                // init content
+                self.stationArray = [NSMutableArray arrayWithArray:[self buildStationsListFromJSONData:data]];
+                
             }] resume];
+}
+
+-(NSArray *)buildStationsListFromJSONData:(NSData*)data {
+    NSArray *stationsArrayFromJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    
+    if (! stationsArrayFromJSON) {
+        [NSException raise:@"JSON parsing error" format:@"Impossible to parse %@", data.description];
+    }
+    
+    NSMutableArray *stations = [[NSMutableArray alloc] init];
+    for (NSDictionary * station in stationsArrayFromJSON) {
+        Station *newStation = [[Station alloc] init];
+        
+        newStation.name = station[@"name"];
+        newStation.address = station[@"address"];
+        newStation.nbBikeAvailable = station[@"available_bikes"];
+        newStation.nbStandAvailable = station[@"available_bike_stands"];
+        newStation.lat = station[@"position"][@"lat"];
+        newStation.lng = station[@"position"][@"lng"];
+        
+        [stations addObject:newStation];
+    }
+    
+    
+    return stations;
 }
 
 
