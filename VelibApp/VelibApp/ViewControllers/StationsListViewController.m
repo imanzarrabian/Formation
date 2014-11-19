@@ -10,9 +10,10 @@
 #import "StationDetailViewController.h"
 #import "StationTableViewCell.h"
 #import "Station.h"
+#import "StationManager.h"
 
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) NSMutableArray *stationArray;
+@property (nonatomic, strong) NSArray *stationArray;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
@@ -25,15 +26,7 @@
 }
 
 - (void)createFakeData {
-    for (NSInteger i=0; i<10; i++) {
-        Station *station = [[Station alloc] init];
-        station.name = [NSString stringWithFormat:@"STATION %ld",i];
-        station.nbBikeAvailable = @(i+2);
-        station.nbStandAvailable = @(i*3);
-        [self.stationArray addObject:station];
-        station.lat = @(50.63);
-        station.lng = @(3.02);
-    }
+    self.stationArray = [StationManager stations];
 }
 
 - (void)didReceiveMemoryWarning {

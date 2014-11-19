@@ -148,7 +148,7 @@
 - (void)setStationAnnotationOnMap {
     CLLocationCoordinate2D locationCoord = CLLocationCoordinate2DMake([self.station.lat doubleValue], [self.station.lng doubleValue]);
 
-    StationAnnotation *annotation = [[StationAnnotation alloc] initWithCoordinate:locationCoord title:self.station.name andSubtitle:[NSString stringWithFormat:@"%ld bikes available",[self.station.nbBikeAvailable integerValue]]];
+    StationAnnotation *annotation = [[StationAnnotation alloc] initWithCoordinate:locationCoord title:self.station.name andSubtitle:[NSString stringWithFormat:@"%ld bikes available",[self.station.nbBikeAvailable integerValue]] andStation:self.station];
     
     [self.mapView addAnnotation:annotation];
 }

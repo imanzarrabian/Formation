@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XW6-cn-4ML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XW6-cn-4ML">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -154,6 +155,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-tG-vXK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="f6a-PU-m2L" id="tUO-ie-MFL"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,7 +210,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="UGn-ZY-ooH" kind="show" id="uud-9o-h7v"/>
+                        <outlet property="mapView" destination="GZd-tG-vXK" id="tiS-Qm-Ai1"/>
+                        <segue destination="UGn-ZY-ooH" kind="show" identifier="DetailsStation" id="uud-9o-h7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSa-B6-i1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -393,8 +398,7 @@
                                         <exclude reference="56P-Oo-ezz"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="508" width="368" height="284"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="56P-Oo-ezz"/>
                                     </mask>
@@ -445,8 +449,7 @@
                                         <exclude reference="vpY-eV-kMf"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="800" width="400" height="80"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="C2S-mo-xHF"/>
                                         <include reference="gSm-yv-Xkt"/>
@@ -524,10 +527,10 @@
                                 <exclude reference="m8D-eB-OIp"/>
                                 <exclude reference="NFU-Tg-3SD"/>
                                 <exclude reference="n7y-j4-HaI"/>
-                                <exclude reference="aY0-Ww-a5s"/>
-                                <exclude reference="ei6-3e-2tD"/>
                                 <exclude reference="rAG-aL-ysL"/>
                                 <exclude reference="u7A-Es-FqH"/>
+                                <exclude reference="aY0-Ww-a5s"/>
+                                <exclude reference="ei6-3e-2tD"/>
                                 <exclude reference="0Kz-xw-f2M"/>
                                 <exclude reference="G9i-3Q-5KN"/>
                             </mask>
@@ -549,10 +552,10 @@
                                 <include reference="m8D-eB-OIp"/>
                                 <include reference="NFU-Tg-3SD"/>
                                 <include reference="n7y-j4-HaI"/>
-                                <include reference="aY0-Ww-a5s"/>
-                                <include reference="ei6-3e-2tD"/>
                                 <include reference="rAG-aL-ysL"/>
                                 <include reference="u7A-Es-FqH"/>
+                                <include reference="aY0-Ww-a5s"/>
+                                <include reference="ei6-3e-2tD"/>
                                 <include reference="0Kz-xw-f2M"/>
                                 <include reference="G9i-3Q-5KN"/>
                             </mask>
@@ -610,6 +613,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ud2-nf-eh1"/>
+        <segue reference="uud-9o-h7v"/>
     </inferredMetricsTieBreakers>
 </document>
