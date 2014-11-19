@@ -24,6 +24,9 @@
 		9CFA20531A1A48470077C590 /* InfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20521A1A48470077C590 /* InfosViewController.m */; };
 		9CFA20551A1A48CE0077C590 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFA20541A1A48CE0077C590 /* MapKit.framework */; };
 		9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */; };
+		F2F1709F1A1CA79B0052F24F /* MentionsLegalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1709E1A1CA79B0052F24F /* MentionsLegalesViewController.m */; };
+		F2F170A51A1CAAD00052F24F /* MentionsLegalesContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F170A41A1CAAD00052F24F /* MentionsLegalesContentViewController.m */; };
+		F2F170A81A1CAD760052F24F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F170A71A1CAD760052F24F /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,12 @@
 		9CFA20541A1A48CE0077C590 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CFA20571A1A53CD0077C590 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
 		9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
+		F2F1709D1A1CA79B0052F24F /* MentionsLegalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsLegalesViewController.h; sourceTree = "<group>"; };
+		F2F1709E1A1CA79B0052F24F /* MentionsLegalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionsLegalesViewController.m; sourceTree = "<group>"; };
+		F2F170A31A1CAAD00052F24F /* MentionsLegalesContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsLegalesContentViewController.h; sourceTree = "<group>"; };
+		F2F170A41A1CAAD00052F24F /* MentionsLegalesContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionsLegalesContentViewController.m; sourceTree = "<group>"; };
+		F2F170A61A1CAD760052F24F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		F2F170A71A1CAD760052F24F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +195,12 @@
 				9CFA20521A1A48470077C590 /* InfosViewController.m */,
 				9CBE613D1A1A8C750030773B /* PageContentViewController.h */,
 				9CBE613E1A1A8C750030773B /* PageContentViewController.m */,
+				F2F1709D1A1CA79B0052F24F /* MentionsLegalesViewController.h */,
+				F2F1709E1A1CA79B0052F24F /* MentionsLegalesViewController.m */,
+				F2F170A31A1CAAD00052F24F /* MentionsLegalesContentViewController.h */,
+				F2F170A41A1CAAD00052F24F /* MentionsLegalesContentViewController.m */,
+				F2F170A61A1CAD760052F24F /* RootViewController.h */,
+				F2F170A71A1CAD760052F24F /* RootViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -311,10 +326,13 @@
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
+				F2F1709F1A1CA79B0052F24F /* MentionsLegalesViewController.m in Sources */,
+				F2F170A81A1CAD760052F24F /* RootViewController.m in Sources */,
 				9CC10E951A1B62160043D745 /* Station.m in Sources */,
 				9CFA20501A1A47570077C590 /* MapViewController.m in Sources */,
 				9CFA201E1A1A44FA0077C590 /* main.m in Sources */,
 				9CFA204D1A1A45F50077C590 /* StationsListViewController.m in Sources */,
+				F2F170A51A1CAAD00052F24F /* MentionsLegalesContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
