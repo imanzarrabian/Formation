@@ -12,6 +12,10 @@
 #import "Station.h"
 #import "StationManager.h"
 
+#define API_KEY @"cd982b2f6008d5560b48a2d31cb6d3ad44f11fca"
+#define API_BASE_URL @"https://api.jcdecaux.com"
+#define API_CONTRACT_NAME @"paris"
+
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -22,7 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self createFakeData];
+    // API call
+    [self getStationsFromAPI];
+    
+   // [self createFakeData];
 }
 
 - (void)createFakeData {
@@ -85,5 +92,45 @@
         }
     }
 }
+
+- (void)getStationsFromAPI {
+    NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contrat=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                // init content
+                self.stationArray = [NSMutableArray arrayWithArray:[self buildStationsListFromJSONData:data]];
+                
+            }] resume];
+}
+
+-(NSArray *)buildStationsListFromJSONData:(NSData*)data {
+    NSArray *stationsArrayFromJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    
+    if (! stationsArrayFromJSON) {
+        [NSException raise:@"JSON parsing error" format:@"Impossible to parse %@", data.description];
+    }
+    
+    NSMutableArray *stations = [[NSMutableArray alloc] init];
+    for (NSDictionary * station in stationsArrayFromJSON) {
+        Station *newStation = [[Station alloc] init];
+        
+        newStation.name = station[@"name"];
+        newStation.address = station[@"address"];
+        newStation.nbBikeAvailable = station[@"available_bikes"];
+        newStation.nbStandAvailable = station[@"available_bike_stands"];
+        newStation.lat = station[@"position"][@"lat"];
+        newStation.lng = station[@"position"][@"lng"];
+        
+        [stations addObject:newStation];
+    }
+    
+    
+    return stations;
+}
+
 
 @end
