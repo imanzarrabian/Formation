@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XW6-cn-4ML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XW6-cn-4ML">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -153,6 +153,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-tG-vXK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="f6a-PU-m2L" id="WhG-fU-m2O"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +208,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="UGn-ZY-ooH" kind="show" id="uud-9o-h7v"/>
+                        <outlet property="mapView" destination="GZd-tG-vXK" id="aTs-cE-b58"/>
+                        <segue destination="UGn-ZY-ooH" kind="show" identifier="DetailsStation" id="uud-9o-h7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSa-B6-i1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -433,14 +437,14 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="x67-hX-Hlg"/>
-                                        <exclude reference="TvH-le-Rbo"/>
-                                        <exclude reference="eDP-fR-v5E"/>
-                                        <exclude reference="vpY-eV-kMf"/>
                                         <exclude reference="3s4-hI-L9d"/>
                                         <exclude reference="43R-Mb-X3e"/>
                                         <exclude reference="Oah-X2-mXa"/>
                                         <exclude reference="jI3-vl-0aH"/>
                                         <exclude reference="oSD-Gp-UPt"/>
+                                        <exclude reference="TvH-le-Rbo"/>
+                                        <exclude reference="eDP-fR-v5E"/>
+                                        <exclude reference="vpY-eV-kMf"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -450,14 +454,14 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="x67-hX-Hlg"/>
-                                        <include reference="TvH-le-Rbo"/>
-                                        <include reference="eDP-fR-v5E"/>
-                                        <include reference="vpY-eV-kMf"/>
                                         <include reference="3s4-hI-L9d"/>
                                         <include reference="43R-Mb-X3e"/>
                                         <include reference="Oah-X2-mXa"/>
                                         <include reference="jI3-vl-0aH"/>
                                         <include reference="oSD-Gp-UPt"/>
+                                        <include reference="TvH-le-Rbo"/>
+                                        <include reference="eDP-fR-v5E"/>
+                                        <include reference="vpY-eV-kMf"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -491,12 +495,12 @@
                                 <exclude reference="Si5-z9-aZ1"/>
                                 <exclude reference="TZo-ab-euk"/>
                                 <exclude reference="m8D-eB-OIp"/>
+                                <exclude reference="rAG-aL-ysL"/>
+                                <exclude reference="u7A-Es-FqH"/>
                                 <exclude reference="aY0-Ww-a5s"/>
                                 <exclude reference="ei6-3e-2tD"/>
                                 <exclude reference="0Kz-xw-f2M"/>
                                 <exclude reference="G9i-3Q-5KN"/>
-                                <exclude reference="rAG-aL-ysL"/>
-                                <exclude reference="u7A-Es-FqH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -513,12 +517,12 @@
                                 <include reference="Si5-z9-aZ1"/>
                                 <include reference="TZo-ab-euk"/>
                                 <include reference="m8D-eB-OIp"/>
+                                <include reference="rAG-aL-ysL"/>
+                                <include reference="u7A-Es-FqH"/>
                                 <include reference="aY0-Ww-a5s"/>
                                 <include reference="ei6-3e-2tD"/>
                                 <include reference="0Kz-xw-f2M"/>
                                 <include reference="G9i-3Q-5KN"/>
-                                <include reference="rAG-aL-ysL"/>
-                                <include reference="u7A-Es-FqH"/>
                             </mask>
                         </variation>
                     </view>
@@ -572,6 +576,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ud2-nf-eh1"/>
+        <segue reference="uud-9o-h7v"/>
     </inferredMetricsTieBreakers>
 </document>

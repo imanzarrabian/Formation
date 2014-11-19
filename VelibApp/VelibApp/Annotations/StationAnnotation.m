@@ -10,11 +10,12 @@
 
 @implementation StationAnnotation
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title andSubtitle:(NSString *)subtitle {
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title andSubtitle:(NSString *)subtitle andStation:(Station*)station {
     if (self = [super init]) {
         self.coordinate = coordinate;
         self.title = title;
         self.subtitle = subtitle;
+        self.station = station;
     }
     return self;
 }
