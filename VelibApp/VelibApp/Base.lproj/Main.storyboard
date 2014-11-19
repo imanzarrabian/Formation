@@ -153,6 +153,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GZd-tG-vXK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="f6a-PU-m2L" id="WhG-fU-m2O"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,7 +209,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="GZd-tG-vXK" id="aTs-cE-b58"/>
-                        <segue destination="UGn-ZY-ooH" kind="show" id="uud-9o-h7v"/>
+                        <segue destination="UGn-ZY-ooH" kind="show" identifier="DetailsStation" id="uud-9o-h7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSa-B6-i1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
