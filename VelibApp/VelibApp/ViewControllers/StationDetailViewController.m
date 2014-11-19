@@ -112,6 +112,32 @@
     }
 }
 
+- (IBAction)goToItineraire:(id)sender {
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+        NSLog(@"Google map");
+        //NSString *url = [NSString stringWithFormat:@"comgooglemaps://?center=%f,%f&zoom=14&views=drive", self.station.lat.doubleValue, self.station.lng.doubleValue];
+        NSString *schemeUrl = [NSString stringWithFormat:@"comgooglemaps://?saddr=%f,%f&daddr=41,+rue+du+pre+Catelan+59110+la+madeleine&directionsmode=drive", self.station.lat.doubleValue, self.station.lng.doubleValue];
+        [[UIApplication sharedApplication] openURL: [NSURL URLWithString:schemeUrl]];
+    }
+    else {
+        NSLog(@"Apple map");
+        Class mapItemClass = [MKMapItem class];
+        if (mapItemClass) {
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.station.lat.doubleValue, self.station.lng.doubleValue);
+            MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+            MKMapItem *map = [[MKMapItem alloc] initWithPlacemark:placemark];
+            [map setName:self.title];
+            
+            NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving};
+            MKMapItem *currentLocation = [MKMapItem mapItemForCurrentLocation];
+            
+            [MKMapItem openMapsWithItems:@[currentLocation, map] launchOptions:launchOptions];
+            //[map openInMapsWithLaunchOptions:nil];
+        }
+    }
+    
+}
+
 - (void)setZoomOnMapAoundStationCoord {
     CLLocationCoordinate2D locationCoord = CLLocationCoordinate2DMake([self.station.lat doubleValue], [self.station.lng doubleValue]);
     MKCoordinateSpan span =  MKCoordinateSpanMake(10.005, 10.005);
