@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSNumber *nbBikeAvailable;
 @property (nonatomic, strong) NSNumber *nbStandAvailable;
 
+
+- (void)fillWithHash:(NSDictionary *)station;
+
 @end

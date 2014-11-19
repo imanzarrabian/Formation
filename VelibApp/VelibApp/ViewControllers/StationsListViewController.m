@@ -18,6 +18,8 @@
 
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
+@property (nonatomic, strong) NSMutableArray *stationMutableArray;
+
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
@@ -47,12 +49,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.stationArray count];
+    return [self.stationMutableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"stationCell" forIndexPath:indexPath];
-    Station *currentStation = self.stationArray[indexPath.row];
+    Station *currentStation = self.stationMutableArray[indexPath.row];
     
 
     cell.stationName.text = currentStation.name;
@@ -71,11 +73,11 @@
 
 
 #pragma mark - Lazy loader
-- (NSMutableArray *)stationArray {
-    if (!_stationArray) {
-        _stationArray = [NSMutableArray new];
+- (NSMutableArray *)stationMutableArray {
+    if (!_stationMutableArray) {
+        _stationMutableArray = [NSMutableArray new];
     }
-    return _stationArray;
+    return _stationMutableArray;
 }
 
 
@@ -87,7 +89,7 @@
                 
                 UITableViewCell *selectedCell = (UITableViewCell *)sender;
                 NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
-                stationDetailVC.station = self.stationArray[indexPath.row];
+                stationDetailVC.station = self.stationMutableArray[indexPath.row];
             }
         }
     }
@@ -97,39 +99,42 @@
     NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contrat=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
     
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
+    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
                 // init content
-                self.stationArray = [NSMutableArray arrayWithArray:[self buildStationsListFromJSONData:data]];
+                self.stationMutableArray = [NSMutableArray arrayWithArray:[self buildStationsListFromJSONData:data]];
                 
-            }] resume];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }];
+    [task resume];
 }
 
--(NSArray *)buildStationsListFromJSONData:(NSData*)data {
+- (NSArray *)buildStationsListFromJSONData:(NSData*)data {
     NSArray *stationsArrayFromJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     
-    if (! stationsArrayFromJSON) {
+    if (!stationsArrayFromJSON) {
         [NSException raise:@"JSON parsing error" format:@"Impossible to parse %@", data.description];
     }
     
-    NSMutableArray *stations = [[NSMutableArray alloc] init];
-    for (NSDictionary * station in stationsArrayFromJSON) {
-        Station *newStation = [[Station alloc] init];
-        
-        newStation.name = station[@"name"];
-        newStation.address = station[@"address"];
-        newStation.nbBikeAvailable = station[@"available_bikes"];
-        newStation.nbStandAvailable = station[@"available_bike_stands"];
-        newStation.lat = station[@"position"][@"lat"];
-        newStation.lng = station[@"position"][@"lng"];
-        
-        [stations addObject:newStation];
+    if ([stationsArrayFromJSON isKindOfClass:[NSArray class]]) {
+        NSMutableArray *stations = [[NSMutableArray alloc] init];
+        for (NSDictionary * station in stationsArrayFromJSON) {
+            Station *newStation = [[Station alloc] init];
+            [newStation fillWithHash:station];
+            
+            [stations addObject:newStation];
+        }
+        return stations;
     }
     
+    return nil;
     
-    return stations;
+    
+    
 }
 
 

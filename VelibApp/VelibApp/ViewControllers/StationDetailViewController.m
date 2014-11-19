@@ -140,7 +140,7 @@
 
 - (void)setZoomOnMapAoundStationCoord {
     CLLocationCoordinate2D locationCoord = CLLocationCoordinate2DMake([self.station.lat doubleValue], [self.station.lng doubleValue]);
-    MKCoordinateSpan span =  MKCoordinateSpanMake(10.005, 10.005);
+    MKCoordinateSpan span =  MKCoordinateSpanMake(0.005, 0.005);
     MKCoordinateRegion region = MKCoordinateRegionMake(locationCoord, span);
     [self.mapView setRegion:region animated:YES];
 }

@@ -10,4 +10,14 @@
 
 @implementation Station
 
+
+- (void)fillWithHash:(NSDictionary *)station {
+    self.name = station[@"name"];
+    self.address = station[@"address"];
+    self.nbBikeAvailable = station[@"available_bikes"];
+    self.nbStandAvailable = station[@"available_bike_stands"];
+    self.lat = station[@"position"][@"lat"];
+    self.lng = station[@"position"][@"lng"];
+}
+
 @end
