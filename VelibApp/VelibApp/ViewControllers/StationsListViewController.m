@@ -13,14 +13,11 @@
 #import "StationManager.h"
 #import "ServicesDefines.h"
 #import "StationService.h"
-#import "UIImageView+WebCache.h"
 
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-
 @end
 
 @implementation StationsListViewController
@@ -29,15 +26,9 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
-
-    [self createPullToRefreshControl];
 }
 
 - (void)stationsReceived:(NSNotification *)notification {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.refreshControl endRefreshing];
-    });
-    
     if (!notification.userInfo[@"error"]) {
         if (notification.userInfo[@"stations_list"]) {
             self.stationArray = notification.userInfo[@"stations_list"];
@@ -50,16 +41,6 @@
     [self.tableView reloadData];
 }
 
-- (void)createPullToRefreshControl {
-    UITableViewController *tableVC = [[UITableViewController alloc] init];
-    tableVC.tableView = self.tableView;
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh"];
-    [self.refreshControl addTarget:self action:@selector(reloadRemoteData) forControlEvents:UIControlEventValueChanged];
-    tableVC.refreshControl = self.refreshControl;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -67,15 +48,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-   // [self reloadRemoteData];
-    [self reloadLocalData];
-}
-
-- (void)reloadLocalData {
-   // self.stationArray =
-}
-
-- (void)reloadRemoteData {
     [[[StationService alloc] init] getStationsFromAPI];
 }
 
@@ -98,19 +70,6 @@
     cell.stationNbBikes.text = [NSString stringWithFormat:@"%ld bikes available",[currentStation.nbBikeAvailable integerValue]];
     
     cell.stationNbStands.text = [NSString stringWithFormat:@"%ld stands available",[currentStation.nbStandAvailable integerValue]];
-    
-    NSURL *urlImage = [NSURL URLWithString:@"http://img0.gtsstatic.com/wallpapers/aa7f4b52bbf9277c032e91be4ca5ed1b_large.jpeg"];
-      [cell.bikeImage sd_setImageWithURL:urlImage
-                        placeholderImage:[UIImage imageNamed:@"image_large"]];
- 
-    //completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                          [UIView animateWithDuration:0.4 animations:^{
-//                              cell.bikeImage.alpha = 0.0;
-//                              cell.bikeImage.alpha = 1.0;
-//                          } completion:^(BOOL finished) {
-//                              
-//                          }];
-                     //}];
 
     return cell;
 }
