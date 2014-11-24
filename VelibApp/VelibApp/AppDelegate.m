@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //NSFileManager *fileMan = [NSFileManager defaultManager];
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"ROOT_DOC"]) {
+        NSLog(@"DOCUMENTS OLD ROOT DIRECTORY %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"ROOT_DOC"]);
+    }
+    else {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSLog(@"DOCUMENTS NEW ROOT DIRECTORY %@",documentsDirectory);
+        [[NSUserDefaults standardUserDefaults] setObject:documentsDirectory forKey:@"ROOT_DOC"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    SDWebImageManager.sharedManager.cacheKeyFilter = ^(NSURL *url) {
+        url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+        return [url absoluteString];
+    };
+    
     return YES;
 }
 
