@@ -10,9 +10,19 @@
 #import <CoreData/CoreData.h>
 #import "GenericObject.h"
 
+@class Station;
 
 @interface User : GenericObject
 
 @property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSSet *favoris;
+@end
+
+@interface User (CoreDataGeneratedAccessors)
+
+- (void)addFavorisObject:(Station *)value;
+- (void)removeFavorisObject:(Station *)value;
+- (void)addFavoris:(NSSet *)values;
+- (void)removeFavoris:(NSSet *)values;
 
 @end

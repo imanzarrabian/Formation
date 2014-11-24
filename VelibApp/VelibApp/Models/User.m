@@ -7,10 +7,12 @@
 //
 
 #import "User.h"
+#import "Station.h"
 
 
 @implementation User
 
 @dynamic email;
+@dynamic favoris;
 
 @end

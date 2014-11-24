@@ -10,13 +10,15 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nbBikeAvailable" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="nbStandAvailable" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favoris" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" parentEntity="GenericObject" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="favoris" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Station" inverseName="user" inverseEntity="Station" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Station" positionX="-1251" positionY="-216" width="128" height="133"/>
-        <element name="User" positionX="-1053" positionY="-211" width="128" height="58"/>
+        <element name="Station" positionX="-1251" positionY="-247" width="128" height="148"/>
+        <element name="User" positionX="-1064" positionY="-243" width="128" height="73"/>
         <element name="GenericObject" positionX="-1127" positionY="-387" width="128" height="58"/>
     </elements>
 </model>

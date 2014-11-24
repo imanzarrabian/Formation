@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "GenericObject.h"
 
+@class User;
 
 @interface Station : GenericObject
 
@@ -19,5 +20,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * nbBikeAvailable;
 @property (nonatomic, retain) NSNumber * nbStandAvailable;
+@property (nonatomic, retain) User *user;
 
 @end

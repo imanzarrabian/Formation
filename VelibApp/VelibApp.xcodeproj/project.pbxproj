@@ -28,8 +28,8 @@
 		9C077DAA1A23425300F41D7F /* VelibApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */; };
 		9C077DB01A2347E200F41D7F /* Station+AddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DAF1A2347E200F41D7F /* Station+AddOn.m */; };
 		9C077DB31A2387F500F41D7F /* GenericObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DB21A2387F500F41D7F /* GenericObject.m */; };
-		9C077DB61A2387F500F41D7F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DB51A2387F500F41D7F /* User.m */; };
-		9C077DB91A23884800F41D7F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DB81A23884800F41D7F /* Station.m */; };
+		9C077DBC1A238BCA00F41D7F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DBB1A238BCA00F41D7F /* Station.m */; };
+		9C077DBF1A238BCA00F41D7F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DBE1A238BCA00F41D7F /* User.m */; };
 		9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35718C1A1CE6D200F758E2 /* StationService.m */; };
 		9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */; };
 		9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE613E1A1A8C750030773B /* PageContentViewController.m */; };
@@ -47,7 +47,6 @@
 		9CFA20531A1A48470077C590 /* InfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20521A1A48470077C590 /* InfosViewController.m */; };
 		9CFA20551A1A48CE0077C590 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFA20541A1A48CE0077C590 /* MapKit.framework */; };
 		9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */; };
-		F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F421B9911A1CA3F1009A72B1 /* StationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,10 +100,10 @@
 		9C077DAF1A2347E200F41D7F /* Station+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Station+AddOn.m"; sourceTree = "<group>"; };
 		9C077DB11A2387F500F41D7F /* GenericObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericObject.h; sourceTree = "<group>"; };
 		9C077DB21A2387F500F41D7F /* GenericObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericObject.m; sourceTree = "<group>"; };
-		9C077DB41A2387F500F41D7F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		9C077DB51A2387F500F41D7F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		9C077DB71A23884800F41D7F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
-		9C077DB81A23884800F41D7F /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		9C077DBA1A238BCA00F41D7F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		9C077DBB1A238BCA00F41D7F /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		9C077DBD1A238BCA00F41D7F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9C077DBE1A238BCA00F41D7F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9C35718B1A1CE6D200F758E2 /* StationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationService.h; sourceTree = "<group>"; };
 		9C35718C1A1CE6D200F758E2 /* StationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationService.m; sourceTree = "<group>"; };
 		9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDefines.h; sourceTree = "<group>"; };
@@ -137,8 +136,6 @@
 		9CFA20541A1A48CE0077C590 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9CFA20571A1A53CD0077C590 /* StationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationTableViewCell.h; sourceTree = "<group>"; };
 		9CFA20581A1A53CD0077C590 /* StationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationTableViewCell.m; sourceTree = "<group>"; };
-		F421B9901A1CA3F1009A72B1 /* StationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationManager.h; sourceTree = "<group>"; };
-		F421B9911A1CA3F1009A72B1 /* StationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,13 +220,11 @@
 		9CC10E921A1B61F80043D745 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F421B9901A1CA3F1009A72B1 /* StationManager.h */,
-				F421B9911A1CA3F1009A72B1 /* StationManager.m */,
+				9C077DBD1A238BCA00F41D7F /* User.h */,
+				9C077DBE1A238BCA00F41D7F /* User.m */,
+				9C077DBA1A238BCA00F41D7F /* Station.h */,
+				9C077DBB1A238BCA00F41D7F /* Station.m */,
 				9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */,
-				9C077DB71A23884800F41D7F /* Station.h */,
-				9C077DB81A23884800F41D7F /* Station.m */,
-				9C077DB41A2387F500F41D7F /* User.h */,
-				9C077DB51A2387F500F41D7F /* User.m */,
 				9C077DB11A2387F500F41D7F /* GenericObject.h */,
 				9C077DB21A2387F500F41D7F /* GenericObject.m */,
 				9C077DAE1A2347E200F41D7F /* Station+AddOn.h */,
@@ -450,22 +445,21 @@
 			files = (
 				9CFA20531A1A48470077C590 /* InfosViewController.m in Sources */,
 				9C077D6A1A232C7900F41D7F /* UIImage+WebP.m in Sources */,
-				9C077DB91A23884800F41D7F /* Station.m in Sources */,
 				9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */,
 				9CFA204C1A1A45F50077C590 /* StationDetailViewController.m in Sources */,
 				9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */,
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
+				9C077DBC1A238BCA00F41D7F /* Station.m in Sources */,
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
 				9C077D641A232C7900F41D7F /* SDWebImageDownloaderOperation.m in Sources */,
 				9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */,
 				9C077D601A232C7900F41D7F /* SDImageCache.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
-				F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */,
 				9C077D611A232C7900F41D7F /* SDWebImageCompat.m in Sources */,
 				9C077DAA1A23425300F41D7F /* VelibApp.xcdatamodeld in Sources */,
 				9C077D5F1A232C7900F41D7F /* NSData+ImageContentType.m in Sources */,
 				9CFA20501A1A47570077C590 /* MapViewController.m in Sources */,
-				9C077DB61A2387F500F41D7F /* User.m in Sources */,
+				9C077DBF1A238BCA00F41D7F /* User.m in Sources */,
 				9C077D651A232C7900F41D7F /* SDWebImageManager.m in Sources */,
 				9C077D631A232C7900F41D7F /* SDWebImageDownloader.m in Sources */,
 				9C077D6C1A232C7900F41D7F /* UIImageView+WebCache.m in Sources */,

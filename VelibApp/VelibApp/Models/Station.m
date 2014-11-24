@@ -7,6 +7,7 @@
 //
 
 #import "Station.h"
+#import "User.h"
 
 
 @implementation Station
@@ -17,5 +18,6 @@
 @dynamic name;
 @dynamic nbBikeAvailable;
 @dynamic nbStandAvailable;
+@dynamic user;
 
 @end
