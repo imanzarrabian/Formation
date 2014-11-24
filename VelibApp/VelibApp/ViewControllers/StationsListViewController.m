@@ -9,11 +9,12 @@
 #import "StationsListViewController.h"
 #import "StationDetailViewController.h"
 #import "StationTableViewCell.h"
-#import "Station.h"
+#import "Station+AddOn.h"
 #import "StationManager.h"
 #import "ServicesDefines.h"
 #import "StationService.h"
 #import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
 
 @interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
@@ -38,16 +39,18 @@
         [self.refreshControl endRefreshing];
     });
     
-    if (!notification.userInfo[@"error"]) {
+    /*if (!notification.userInfo[@"error"]) {
         if (notification.userInfo[@"stations_list"]) {
+     
             self.stationArray = notification.userInfo[@"stations_list"];
             NSLog(@"STATION count %ld ",[self.stationArray count]);
         }
     }
     else {
       //Handle error
-    }
-    [self.tableView reloadData];
+    }*/
+    
+    [self reloadLocalDataAndReloadView];
 }
 
 - (void)createPullToRefreshControl {
@@ -67,12 +70,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-   // [self reloadRemoteData];
-    [self reloadLocalData];
+    [self reloadRemoteData];
+    [self reloadLocalDataAndReloadView];
 }
 
-- (void)reloadLocalData {
-   // self.stationArray =
+- (void)reloadLocalDataAndReloadView {
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor]];
+    
+    [self.tableView reloadData];
 }
 
 - (void)reloadRemoteData {
@@ -92,7 +98,6 @@
     StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"stationCell" forIndexPath:indexPath];
     Station *currentStation = self.stationArray[indexPath.row];
     
-
     cell.stationName.text = currentStation.name;
     
     cell.stationNbBikes.text = [NSString stringWithFormat:@"%ld bikes available",[currentStation.nbBikeAvailable integerValue]];
@@ -102,7 +107,7 @@
     NSURL *urlImage = [NSURL URLWithString:@"http://img0.gtsstatic.com/wallpapers/aa7f4b52bbf9277c032e91be4ca5ed1b_large.jpeg"];
       [cell.bikeImage sd_setImageWithURL:urlImage
                         placeholderImage:[UIImage imageNamed:@"image_large"]];
- 
+    
     //completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 //                          [UIView animateWithDuration:0.4 animations:^{
 //                              cell.bikeImage.alpha = 0.0;
@@ -119,7 +124,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

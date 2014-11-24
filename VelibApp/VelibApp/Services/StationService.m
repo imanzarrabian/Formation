@@ -9,6 +9,9 @@
 #import "StationService.h"
 #import "Station.h"
 #import "ServicesDefines.h"
+#import "Station+AddOn.h"
+#import "AppDelegate.h"
+
 @implementation StationService
 
 - (void)getStationsFromAPI {
@@ -37,12 +40,21 @@
     
     if ([stationsArrayFromJSON isKindOfClass:[NSArray class]]) {
         NSMutableArray *stations = [[NSMutableArray alloc] init];
-        for (NSDictionary * station in stationsArrayFromJSON) {
-            Station *newStation = [[Station alloc] init];
-            [newStation fillWithHash:station];
-            
-            [stations addObject:newStation];
-        }
+        
+        AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:myApp.managedObjectContext];
+
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            for (NSDictionary * station in stationsArrayFromJSON) {
+
+                Station *newStation =  [[Station alloc] initWithEntity:entity
+                                        insertIntoManagedObjectContext:myApp.managedObjectContext];
+                
+                [newStation fillWithHash:station];
+            }
+            [myApp saveContext];
+        });
+
         return stations;
     }
     return nil;
@@ -55,7 +67,7 @@
     if (stations) {
         dispatch_async(dispatch_get_main_queue(), ^{
             //INFORM VC
-            [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:@{@"stations_list":stations}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:nil];
         });
     }
     else {

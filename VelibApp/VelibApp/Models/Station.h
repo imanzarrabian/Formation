@@ -2,22 +2,22 @@
 //  Station.h
 //  VelibApp
 //
-//  Created by Iman Zarrabian on 18/11/14.
+//  Created by Iman Zarrabian on 24/11/14.
 //  Copyright (c) 2014 Iman Zarrabian. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Station : NSObject
-
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSNumber *lat;
-@property (nonatomic, strong) NSNumber *lng;
-@property (nonatomic, strong) NSNumber *nbBikeAvailable;
-@property (nonatomic, strong) NSNumber *nbStandAvailable;
+#import <CoreData/CoreData.h>
 
 
-- (void)fillWithHash:(NSDictionary *)station;
+@interface Station : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * address;
+@property (nonatomic, retain) NSNumber * lat;
+@property (nonatomic, retain) NSNumber * lng;
+@property (nonatomic, retain) NSNumber * nbBikeAvailable;
+@property (nonatomic, retain) NSNumber * nbStandAvailable;
+@property (nonatomic, retain) NSNumber * number;
 
 @end

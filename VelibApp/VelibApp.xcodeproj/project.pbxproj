@@ -24,10 +24,13 @@
 		9C077D6B1A232C7900F41D7F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077D591A232C7900F41D7F /* UIImageView+HighlightedWebCache.m */; };
 		9C077D6C1A232C7900F41D7F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077D5B1A232C7900F41D7F /* UIImageView+WebCache.m */; };
 		9C077D6D1A232C7900F41D7F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077D5D1A232C7900F41D7F /* UIView+WebCacheOperation.m */; };
+		9C077DA71A2341C700F41D7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C077DA61A2341C700F41D7F /* CoreData.framework */; };
+		9C077DAA1A23425300F41D7F /* VelibApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */; };
+		9C077DAD1A2346CF00F41D7F /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DAC1A2346CF00F41D7F /* Station.m */; };
+		9C077DB01A2347E200F41D7F /* Station+AddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DAF1A2347E200F41D7F /* Station+AddOn.m */; };
 		9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35718C1A1CE6D200F758E2 /* StationService.m */; };
 		9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */; };
 		9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE613E1A1A8C750030773B /* PageContentViewController.m */; };
-		9CC10E951A1B62160043D745 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC10E941A1B62160043D745 /* Station.m */; };
 		9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */; };
 		9CC10E9E1A1B92550043D745 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC10E9D1A1B92550043D745 /* CoreLocation.framework */; };
 		9CFA201E1A1A44FA0077C590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA201D1A1A44FA0077C590 /* main.m */; };
@@ -90,6 +93,12 @@
 		9C077D5B1A232C7900F41D7F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		9C077D5C1A232C7900F41D7F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		9C077D5D1A232C7900F41D7F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		9C077DA61A2341C700F41D7F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9C077DA91A23425300F41D7F /* VelibApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VelibApp.xcdatamodel; sourceTree = "<group>"; };
+		9C077DAB1A2346CF00F41D7F /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		9C077DAC1A2346CF00F41D7F /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		9C077DAE1A2347E200F41D7F /* Station+AddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Station+AddOn.h"; sourceTree = "<group>"; };
+		9C077DAF1A2347E200F41D7F /* Station+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Station+AddOn.m"; sourceTree = "<group>"; };
 		9C35718B1A1CE6D200F758E2 /* StationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationService.h; sourceTree = "<group>"; };
 		9C35718C1A1CE6D200F758E2 /* StationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationService.m; sourceTree = "<group>"; };
 		9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDefines.h; sourceTree = "<group>"; };
@@ -97,8 +106,6 @@
 		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ViewControllers/PageViewController.m; sourceTree = "<group>"; };
 		9CBE613D1A1A8C750030773B /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		9CBE613E1A1A8C750030773B /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
-		9CC10E931A1B62160043D745 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
-		9CC10E941A1B62160043D745 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
 		9CC10E9A1A1B90F90043D745 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
 		9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
 		9CC10E9D1A1B92550043D745 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -133,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C077DA71A2341C700F41D7F /* CoreData.framework in Frameworks */,
 				9CC10E9E1A1B92550043D745 /* CoreLocation.framework in Frameworks */,
 				9CFA20551A1A48CE0077C590 /* MapKit.framework in Frameworks */,
 			);
@@ -209,10 +217,13 @@
 		9CC10E921A1B61F80043D745 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9CC10E931A1B62160043D745 /* Station.h */,
-				9CC10E941A1B62160043D745 /* Station.m */,
 				F421B9901A1CA3F1009A72B1 /* StationManager.h */,
 				F421B9911A1CA3F1009A72B1 /* StationManager.m */,
+				9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */,
+				9C077DAB1A2346CF00F41D7F /* Station.h */,
+				9C077DAC1A2346CF00F41D7F /* Station.m */,
+				9C077DAE1A2347E200F41D7F /* Station+AddOn.h */,
+				9C077DAF1A2347E200F41D7F /* Station+AddOn.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 		9CFA201B1A1A44FA0077C590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C077DA61A2341C700F41D7F /* CoreData.framework */,
 				9CC10E9D1A1B92550043D745 /* CoreLocation.framework */,
 				9CFA20541A1A48CE0077C590 /* MapKit.framework */,
 				9CFA201C1A1A44FA0077C590 /* Info.plist */,
@@ -434,12 +446,13 @@
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
 				9C077D641A232C7900F41D7F /* SDWebImageDownloaderOperation.m in Sources */,
+				9C077DAD1A2346CF00F41D7F /* Station.m in Sources */,
 				9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */,
 				9C077D601A232C7900F41D7F /* SDImageCache.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
-				9CC10E951A1B62160043D745 /* Station.m in Sources */,
 				F421B9921A1CA3F1009A72B1 /* StationManager.m in Sources */,
 				9C077D611A232C7900F41D7F /* SDWebImageCompat.m in Sources */,
+				9C077DAA1A23425300F41D7F /* VelibApp.xcdatamodeld in Sources */,
 				9C077D5F1A232C7900F41D7F /* NSData+ImageContentType.m in Sources */,
 				9CFA20501A1A47570077C590 /* MapViewController.m in Sources */,
 				9C077D651A232C7900F41D7F /* SDWebImageManager.m in Sources */,
@@ -453,6 +466,7 @@
 				9C077D671A232C7900F41D7F /* UIButton+WebCache.m in Sources */,
 				9C077D691A232C7900F41D7F /* UIImage+MultiFormat.m in Sources */,
 				9C077D621A232C7900F41D7F /* SDWebImageDecoder.m in Sources */,
+				9C077DB01A2347E200F41D7F /* Station+AddOn.m in Sources */,
 				9C077D6D1A232C7900F41D7F /* UIView+WebCacheOperation.m in Sources */,
 				9CFA204D1A1A45F50077C590 /* StationsListViewController.m in Sources */,
 			);
@@ -667,6 +681,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9C077DA91A23425300F41D7F /* VelibApp.xcdatamodel */,
+			);
+			currentVersion = 9C077DA91A23425300F41D7F /* VelibApp.xcdatamodel */;
+			path = VelibApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9CFA20101A1A44FA0077C590 /* Project object */;
 }
