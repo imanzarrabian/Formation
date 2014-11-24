@@ -42,19 +42,20 @@
         NSMutableArray *stations = [[NSMutableArray alloc] init];
         
         AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:myApp.managedObjectContext];
-
         dispatch_sync(dispatch_get_main_queue(), ^{
             for (NSDictionary * station in stationsArrayFromJSON) {
-
-                Station *newStation =  [[Station alloc] initWithEntity:entity
-                                        insertIntoManagedObjectContext:myApp.managedObjectContext];
                 
+                //Creating station or getting an existing one
+                Station *newStation = [Station createOrGetStationWithUniqueIdentifier:station[@"number"]];
+                
+                //updating station data in all cases
                 [newStation fillWithHash:station];
             }
+            
+            //Finally saving context after the for loop
             [myApp saveContext];
         });
-
+        
         return stations;
     }
     return nil;

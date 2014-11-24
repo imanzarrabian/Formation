@@ -11,12 +11,11 @@
 
 @implementation Station
 
-@dynamic name;
 @dynamic address;
 @dynamic lat;
 @dynamic lng;
+@dynamic name;
 @dynamic nbBikeAvailable;
 @dynamic nbStandAvailable;
-@dynamic number;
 
 @end

@@ -79,9 +79,9 @@
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
    
     //Adding predicate to filter data on name containing 'Alexandre'
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@",@"Alexandre"];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@",@"Alexandre"];
     
-    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor] andPredicate:predicate];
+    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor] andPredicate:nil];
     
     [self.tableView reloadData];
 }
