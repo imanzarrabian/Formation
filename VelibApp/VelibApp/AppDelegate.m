@@ -43,6 +43,10 @@
     
     NSLog(@"STACK INITIALIZED %@", self.managedObjectContext);
     
+     NSEntityDescription *userDescription = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    
+    self.currentUser = [[User alloc] initWithEntity:userDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    
     return YES;
 }
 

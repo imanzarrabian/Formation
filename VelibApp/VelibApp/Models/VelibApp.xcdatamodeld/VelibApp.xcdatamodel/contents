@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14C68k" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="GenericObject" representedClassName="GenericObject" syncable="YES">
-        <attribute name="unique_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="unique_id" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="Station" representedClassName="Station" parentEntity="GenericObject" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,8 +17,8 @@
         <relationship name="favoris" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Station" inverseName="user" inverseEntity="Station" syncable="YES"/>
     </entity>
     <elements>
+        <element name="GenericObject" positionX="-1127" positionY="-387" width="128" height="58"/>
         <element name="Station" positionX="-1251" positionY="-247" width="128" height="148"/>
         <element name="User" positionX="-1064" positionY="-243" width="128" height="73"/>
-        <element name="GenericObject" positionX="-1127" positionY="-387" width="128" height="58"/>
     </elements>
 </model>

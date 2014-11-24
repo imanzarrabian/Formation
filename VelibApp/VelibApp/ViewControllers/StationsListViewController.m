@@ -30,6 +30,9 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
 
+    [self reloadRemoteData];
+    [self reloadLocalDataAndReloadView];
+    
     [self createPullToRefreshControl];
 }
 
@@ -69,8 +72,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self reloadRemoteData];
-    [self reloadLocalDataAndReloadView];
+    [self.tableView reloadData];
 }
 
 - (void)reloadLocalDataAndReloadView {
@@ -102,6 +104,9 @@
     StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"stationCell" forIndexPath:indexPath];
     Station *currentStation = self.stationArray[indexPath.row];
     
+    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    [myApp.managedObjectContext refreshObject:currentStation mergeChanges:YES];
+    
     cell.stationName.text = currentStation.name;
     
     cell.stationNbBikes.text = [NSString stringWithFormat:@"%ld bikes available",[currentStation.nbBikeAvailable integerValue]];
@@ -111,6 +116,14 @@
     NSURL *urlImage = [NSURL URLWithString:@"http://img0.gtsstatic.com/wallpapers/aa7f4b52bbf9277c032e91be4ca5ed1b_large.jpeg"];
       [cell.bikeImage sd_setImageWithURL:urlImage
                         placeholderImage:[UIImage imageNamed:@"image_large"]];
+    
+    if (currentStation.user) {
+        cell.backgroundColor = [UIColor lightGrayColor];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+
+    }
     
     //completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
 //                          [UIView animateWithDuration:0.4 animations:^{

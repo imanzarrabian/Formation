@@ -9,6 +9,7 @@
 #import "StationDetailViewController.h"
 #import <MapKit/MapKit.h>
 #import "StationAnnotation.h"
+#import "AppDelegate.h"
 
 @interface StationDetailViewController () <CLLocationManagerDelegate>
 @property (nonatomic, weak) IBOutlet UILabel *bikeAvailableLabel;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UIView *locationWarningView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *warningViewBottomConstraint;
+@property (nonatomic, weak) IBOutlet UIButton *favButton;
 @end
 
 @implementation StationDetailViewController
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadInitialFavButtonState];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkLocationAuthorization:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
@@ -65,6 +68,29 @@
         [self setStationAnnotationOnMap];
         [self setZoomOnMapAoundStationCoord];
     });
+}
+
+- (void)loadInitialFavButtonState {
+    BOOL isFavorite = self.station.user ? YES:NO;
+    self.favButton.selected = isFavorite;
+
+    [self.favButton setTitle:@"Add to favs" forState:UIControlStateNormal];
+    [self.favButton setTitle:@"Remove from favs" forState:UIControlStateSelected];
+    [self.favButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+}
+
+- (IBAction)addOrRemoveToOrFromFavs:(id)sender {
+    self.favButton.selected = !self.favButton.selected;
+    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    if (self.favButton.selected) {
+        self.station.user = myApp.currentUser;
+    }
+    else {
+        self.station.user = nil;
+    }
+   // [myApp saveContext];
 }
 
 - (void)checkLocationAuthorization:(NSNotification *)notification {

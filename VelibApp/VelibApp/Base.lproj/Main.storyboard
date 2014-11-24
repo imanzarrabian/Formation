@@ -584,17 +584,49 @@
                                     <action selector="goToItineraire:" destination="UGn-ZY-ooH" eventType="touchUpInside" id="uZ1-Cm-EVg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6v-Cw-J57">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="134" id="9bq-NX-vbz"/>
+                                    <constraint firstAttribute="height" constant="30" id="iad-0L-zIA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Add to favs">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" title="Remove from favs">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9bq-NX-vbz"/>
+                                        <exclude reference="iad-0L-zIA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9bq-NX-vbz"/>
+                                        <include reference="iad-0L-zIA"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="addOrRemoveToOrFromFavs:" destination="UGn-ZY-ooH" eventType="touchUpInside" id="9CT-Gb-oNE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vRA-eY-lMw" secondAttribute="trailing" id="0Kz-xw-f2M"/>
                             <constraint firstItem="vRA-eY-lMw" firstAttribute="leading" secondItem="sp8-6L-AmA" secondAttribute="leading" id="G9i-3Q-5KN"/>
+                            <constraint firstItem="c6v-Cw-J57" firstAttribute="trailing" secondItem="sp8-6L-AmA" secondAttribute="trailingMargin" id="MYf-t5-RLU"/>
                             <constraint firstItem="Fcb-jk-4iU" firstAttribute="trailing" secondItem="sp8-6L-AmA" secondAttribute="trailingMargin" id="NFU-Tg-3SD"/>
                             <constraint firstItem="Ztl-U1-Kg4" firstAttribute="top" secondItem="IOa-1A-Ivb" secondAttribute="bottom" constant="18" id="Si5-z9-aZ1"/>
                             <constraint firstItem="Ztl-U1-Kg4" firstAttribute="leading" secondItem="IOa-1A-Ivb" secondAttribute="leading" id="TZo-ab-euk"/>
                             <constraint firstItem="IOa-1A-Ivb" firstAttribute="leading" secondItem="sp8-6L-AmA" secondAttribute="leading" constant="16" id="VHJ-qN-Cmh"/>
                             <constraint firstItem="hn2-F7-APJ" firstAttribute="leading" secondItem="sp8-6L-AmA" secondAttribute="leading" constant="16" id="aY0-Ww-a5s"/>
                             <constraint firstAttribute="trailing" secondItem="hn2-F7-APJ" secondAttribute="trailing" constant="16" id="ei6-3e-2tD"/>
+                            <constraint firstItem="hn2-F7-APJ" firstAttribute="top" secondItem="c6v-Cw-J57" secondAttribute="bottom" constant="8" id="gjW-u3-qUc"/>
                             <constraint firstItem="Ztl-U1-Kg4" firstAttribute="trailing" secondItem="IOa-1A-Ivb" secondAttribute="trailing" id="m8D-eB-OIp"/>
                             <constraint firstItem="Fcb-jk-4iU" firstAttribute="top" secondItem="MsJ-5E-rjM" secondAttribute="bottom" constant="10" id="n7y-j4-HaI"/>
                             <constraint firstItem="cX1-gh-4o1" firstAttribute="top" secondItem="vRA-eY-lMw" secondAttribute="bottom" constant="-80" id="rAG-aL-ysL"/>
@@ -609,6 +641,7 @@
                                 <exclude reference="hn2-F7-APJ"/>
                                 <exclude reference="vRA-eY-lMw"/>
                                 <exclude reference="Fcb-jk-4iU"/>
+                                <exclude reference="c6v-Cw-J57"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="VHJ-qN-Cmh"/>
@@ -619,10 +652,12 @@
                                 <exclude reference="m8D-eB-OIp"/>
                                 <exclude reference="NFU-Tg-3SD"/>
                                 <exclude reference="n7y-j4-HaI"/>
-                                <exclude reference="rAG-aL-ysL"/>
-                                <exclude reference="u7A-Es-FqH"/>
                                 <exclude reference="aY0-Ww-a5s"/>
                                 <exclude reference="ei6-3e-2tD"/>
+                                <exclude reference="gjW-u3-qUc"/>
+                                <exclude reference="MYf-t5-RLU"/>
+                                <exclude reference="rAG-aL-ysL"/>
+                                <exclude reference="u7A-Es-FqH"/>
                                 <exclude reference="0Kz-xw-f2M"/>
                                 <exclude reference="G9i-3Q-5KN"/>
                             </mask>
@@ -634,6 +669,7 @@
                                 <include reference="hn2-F7-APJ"/>
                                 <include reference="vRA-eY-lMw"/>
                                 <include reference="Fcb-jk-4iU"/>
+                                <include reference="c6v-Cw-J57"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="VHJ-qN-Cmh"/>
@@ -644,10 +680,12 @@
                                 <include reference="m8D-eB-OIp"/>
                                 <include reference="NFU-Tg-3SD"/>
                                 <include reference="n7y-j4-HaI"/>
-                                <include reference="rAG-aL-ysL"/>
-                                <include reference="u7A-Es-FqH"/>
                                 <include reference="aY0-Ww-a5s"/>
                                 <include reference="ei6-3e-2tD"/>
+                                <include reference="gjW-u3-qUc"/>
+                                <include reference="MYf-t5-RLU"/>
+                                <include reference="rAG-aL-ysL"/>
+                                <include reference="u7A-Es-FqH"/>
                                 <include reference="0Kz-xw-f2M"/>
                                 <include reference="G9i-3Q-5KN"/>
                             </mask>
@@ -657,6 +695,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bikeAvailableLabel" destination="IOa-1A-Ivb" id="h6c-VF-TIQ"/>
+                        <outlet property="favButton" destination="c6v-Cw-J57" id="owc-ns-ELL"/>
                         <outlet property="locationWarningView" destination="vRA-eY-lMw" id="NFk-bM-tbV"/>
                         <outlet property="mapView" destination="hn2-F7-APJ" id="Xa6-DA-a8U"/>
                         <outlet property="standsAvailableLabel" destination="Ztl-U1-Kg4" id="04b-mD-rw2"/>
