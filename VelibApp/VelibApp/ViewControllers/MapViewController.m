@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "StationManager.h"
 #import <MapKit/MapKit.h>
 #import "StationAnnotation.h"
 #import "Station.h"

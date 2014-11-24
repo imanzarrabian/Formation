@@ -10,7 +10,6 @@
 #import "StationDetailViewController.h"
 #import "StationTableViewCell.h"
 #import "Station+AddOn.h"
-#import "StationManager.h"
 #import "ServicesDefines.h"
 #import "StationService.h"
 #import "UIImageView+WebCache.h"
