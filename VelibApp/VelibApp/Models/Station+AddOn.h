@@ -11,6 +11,6 @@
 @interface Station (AddOn)
 
 - (void)fillWithHash:(NSDictionary *)station;
-+ (NSArray *)fetchStationsWithSortDescriptors:(NSArray *)sortDescriptors;
++ (NSArray *)fetchStationsWithSortDescriptors:(NSArray *)sortDescriptors andPredicate:(NSPredicate *)predicate;
 
 @end

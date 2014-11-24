@@ -75,8 +75,13 @@
 }
 
 - (void)reloadLocalDataAndReloadView {
+    //Sorting
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor]];
+   
+    //Adding predicate to filter data on name containing 'Alexandre'
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@",@"Alexandre"];
+    
+    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor] andPredicate:predicate];
     
     [self.tableView reloadData];
 }

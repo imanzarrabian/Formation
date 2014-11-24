@@ -25,10 +25,13 @@
     self.lng = station[@"position"][@"lng"];
 }
 
-+ (NSArray *)fetchStationsWithSortDescriptors:(NSArray *)sortDescriptors {
++ (NSArray *)fetchStationsWithSortDescriptors:(NSArray *)sortDescriptors andPredicate:(NSPredicate *)predicate {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Station"];
     if (sortDescriptors) {
         request.sortDescriptors = sortDescriptors;
+    }
+    if (predicate) {
+        request.predicate = predicate;
     }
     AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
     NSError *error = nil;
