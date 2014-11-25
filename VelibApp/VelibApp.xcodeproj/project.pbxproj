@@ -47,6 +47,7 @@
 		9CF8F8551A24B440009A224E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F84C1A24B440009A224E /* AFURLSessionManager.m */; };
 		9CF8F8581A24B4BC009A224E /* VelibAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8571A24B4BC009A224E /* VelibAPIClient.m */; };
 		9CF8F85A1A24C2AB009A224E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */; };
+		9CF8F85E1A24D471009A224E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CF8F85C1A24D471009A224E /* Localizable.strings */; };
 		9CFA201E1A1A44FA0077C590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA201D1A1A44FA0077C590 /* main.m */; };
 		9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20201A1A44FA0077C590 /* AppDelegate.m */; };
 		9CFA20271A1A44FA0077C590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA20251A1A44FA0077C590 /* Main.storyboard */; };
@@ -119,8 +120,8 @@
 		9C35718B1A1CE6D200F758E2 /* StationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationService.h; sourceTree = "<group>"; };
 		9C35718C1A1CE6D200F758E2 /* StationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationService.m; sourceTree = "<group>"; };
 		9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDefines.h; sourceTree = "<group>"; };
-		9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageViewController.h; path = ViewControllers/PageViewController.h; sourceTree = "<group>"; };
-		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ViewControllers/PageViewController.m; sourceTree = "<group>"; };
+		9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		9C99166E1A24788500B1472C /* GenericObject+AddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GenericObject+AddOn.h"; sourceTree = "<group>"; };
 		9C99166F1A24788500B1472C /* GenericObject+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GenericObject+AddOn.m"; sourceTree = "<group>"; };
 		9C9916721A248DAD00B1472C /* VelibApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VelibApp 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -151,6 +152,9 @@
 		9CF8F8561A24B4BC009A224E /* VelibAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelibAPIClient.h; sourceTree = "<group>"; };
 		9CF8F8571A24B4BC009A224E /* VelibAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelibAPIClient.m; sourceTree = "<group>"; };
 		9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9CF8F85B1A24D3D2009A224E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9CF8F85D1A24D471009A224E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CF8F85F1A24D476009A224E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CFA20181A1A44FA0077C590 /* VelibApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VelibApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFA201C1A1A44FA0077C590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFA201D1A1A44FA0077C590 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -319,6 +323,25 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		9CF8F8601A24D71C009A224E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */,
+				9C077DA61A2341C700F41D7F /* CoreData.framework */,
+				9CC10E9D1A1B92550043D745 /* CoreLocation.framework */,
+				9CFA20541A1A48CE0077C590 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CF8F8611A24D728009A224E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9CF8F85C1A24D471009A224E /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		9CFA200F1A1A44FA0077C590 = {
 			isa = PBXGroup;
 			children = (
@@ -353,8 +376,6 @@
 				9CFA20281A1A44FA0077C590 /* Images.xcassets */,
 				9CFA202A1A1A44FA0077C590 /* LaunchScreen.xib */,
 				9CFA201B1A1A44FA0077C590 /* Supporting Files */,
-				9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */,
-				9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */,
 			);
 			path = VelibApp;
 			sourceTree = "<group>";
@@ -362,10 +383,8 @@
 		9CFA201B1A1A44FA0077C590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */,
-				9C077DA61A2341C700F41D7F /* CoreData.framework */,
-				9CC10E9D1A1B92550043D745 /* CoreLocation.framework */,
-				9CFA20541A1A48CE0077C590 /* MapKit.framework */,
+				9CF8F8611A24D728009A224E /* Resources */,
+				9CF8F8601A24D71C009A224E /* Frameworks */,
 				9CFA201C1A1A44FA0077C590 /* Info.plist */,
 				9CFA201D1A1A44FA0077C590 /* main.m */,
 			);
@@ -402,6 +421,8 @@
 				9CFA20521A1A48470077C590 /* InfosViewController.m */,
 				9CBE613D1A1A8C750030773B /* PageContentViewController.h */,
 				9CBE613E1A1A8C750030773B /* PageContentViewController.m */,
+				9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */,
+				9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -483,6 +504,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 9CFA200F1A1A44FA0077C590;
 			productRefGroup = 9CFA20191A1A44FA0077C590 /* Products */;
@@ -500,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF8F85E1A24D471009A224E /* Localizable.strings in Resources */,
 				9CFA20271A1A44FA0077C590 /* Main.storyboard in Resources */,
 				9CFA202C1A1A44FA0077C590 /* LaunchScreen.xib in Resources */,
 				36906AA71A1CAB9C00F3E122 /* MaMaison.gpx in Resources */,
@@ -586,6 +609,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9CF8F85C1A24D471009A224E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CF8F85D1A24D471009A224E /* en */,
+				9CF8F85F1A24D476009A224E /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9CFA20251A1A44FA0077C590 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -598,6 +630,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9CFA202B1A1A44FA0077C590 /* Base */,
+				9CF8F85B1A24D3D2009A224E /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

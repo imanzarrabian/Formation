@@ -59,7 +59,7 @@
     tableVC.tableView = self.tableView;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh"];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Pull To Refresh",@"On the of top station list")];
     [self.refreshControl addTarget:self action:@selector(reloadRemoteData) forControlEvents:UIControlEventValueChanged];
     tableVC.refreshControl = self.refreshControl;
 }

@@ -37,7 +37,6 @@
 }
 
 
-
 #pragma mark - private helper methods
 - (NSArray *)buildStationsListFromJSONData:(id)stationsArrayFromJSON {
     
@@ -77,7 +76,6 @@
         //INFORM VC
         [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:@{@"error":@"TO BE HANDLED!!"}];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
     }
 }
 
