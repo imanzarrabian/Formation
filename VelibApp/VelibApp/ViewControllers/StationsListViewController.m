@@ -15,7 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "AppDelegate.h"
 
-@interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface StationsListViewController () <UITableViewDataSource,UITableViewDelegate,StationDetailViewControllerDelegate>
 @property (nonatomic, strong) NSArray *stationArray;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -41,17 +41,6 @@
         [self.refreshControl endRefreshing];
     });
     
-    /*if (!notification.userInfo[@"error"]) {
-        if (notification.userInfo[@"stations_list"]) {
-     
-            self.stationArray = notification.userInfo[@"stations_list"];
-            NSLog(@"STATION count %ld ",[self.stationArray count]);
-        }
-    }
-    else {
-      //Handle error
-    }*/
-    
     [self reloadLocalDataAndReloadView];
 }
 
@@ -72,7 +61,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 - (void)reloadLocalDataAndReloadView {
@@ -104,10 +93,12 @@
     StationTableViewCell *cell = (StationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"stationCell" forIndexPath:indexPath];
     Station *currentStation = self.stationArray[indexPath.row];
     
-    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-    [myApp.managedObjectContext refreshObject:currentStation mergeChanges:YES];
+    //AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    //[myApp.managedObjectContext refreshObject:currentStation mergeChanges:YES];
     
     cell.stationName.text = currentStation.name;
+
+
     
     cell.stationNbBikes.text = [NSString stringWithFormat:@"%ld bikes available",[currentStation.nbBikeAvailable integerValue]];
     
@@ -118,11 +109,10 @@
                         placeholderImage:[UIImage imageNamed:@"image_large"]];
     
     if (currentStation.user) {
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.favView.hidden = NO;
     }
     else {
-        cell.backgroundColor = [UIColor whiteColor];
-
+        cell.favView.hidden = YES;
     }
     
     //completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -148,13 +138,25 @@
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             if ([segue.destinationViewController isKindOfClass:[StationDetailViewController class]]) {
                 StationDetailViewController *stationDetailVC = (StationDetailViewController *)segue.destinationViewController;
-                
+                stationDetailVC.delegate = self;
                 UITableViewCell *selectedCell = (UITableViewCell *)sender;
                 NSIndexPath *indexPath = [self.tableView indexPathForCell:selectedCell];
                 stationDetailVC.station = self.stationArray[indexPath.row];
             }
         }
     }
+}
+
+#pragma mark - StationDetailViewControllerDelegate methods
+- (void)stationDetailViewController:(StationDetailViewController *)stationDetailVC didAddOrRemoveToOrFromFavsStation:(Station *)station {
+    NSInteger indexOfStation = [self.stationArray indexOfObject:station];
+    NSIndexPath *indexPath;
+    if (indexOfStation != NSNotFound) {
+        indexPath = [NSIndexPath indexPathForRow:indexOfStation inSection:0];
+    }
+
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+
 }
 
 @end

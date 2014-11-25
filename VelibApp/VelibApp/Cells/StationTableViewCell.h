@@ -14,5 +14,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *stationNbBikes;
 @property (nonatomic, weak) IBOutlet UILabel *stationNbStands;
 @property (nonatomic, weak) IBOutlet UIImageView *bikeImage;
+@property (nonatomic, weak) IBOutlet UIView *favView;
 
 @end

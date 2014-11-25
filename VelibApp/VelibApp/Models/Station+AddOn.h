@@ -10,7 +10,6 @@
 
 @interface Station (AddOn)
 
-+ (Station *)createOrGetStationWithUniqueIdentifier:(NSNumber *)uniqueIdentifier;
 - (void)fillWithHash:(NSDictionary *)station;
 + (NSArray *)fetchStationsWithSortDescriptors:(NSArray *)sortDescriptors andPredicate:(NSPredicate *)predicate;
 

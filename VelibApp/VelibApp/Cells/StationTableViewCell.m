@@ -11,7 +11,13 @@
 @implementation StationTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.bikeImage.layer.borderWidth = 1.0;
+    self.bikeImage.layer.borderColor = [UIColor blueColor].CGColor;
+    self.bikeImage.layer.cornerRadius = 5.0;
+}
+
+- (void)prepareForReuse {
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -11,13 +11,14 @@
 #import "ServicesDefines.h"
 #import "Station+AddOn.h"
 #import "AppDelegate.h"
+#import "GenericObject+AddOn.h"
 
 @implementation StationService
 
 - (void)getStationsFromAPI {
     NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contract=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
     
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
                                         completionHandler:^(NSData *data,
@@ -46,7 +47,7 @@
             for (NSDictionary * station in stationsArrayFromJSON) {
                 
                 //Creating station or getting an existing one
-                Station *newStation = [Station createOrGetStationWithUniqueIdentifier:station[@"number"]];
+                Station *newStation = (Station *)[Station createOrGetObjectWithUniqueIdentifier:station[@"number"]];
                 
                 //updating station data in all cases
                 [newStation fillWithHash:station];
@@ -69,12 +70,15 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             //INFORM VC
             [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:nil];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         });
     }
     else {
         //INFORM VC FOR SPECIAL BEHAVIOUR
         //INFORM VC
         [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:@{@"error":@"TO BE HANDLED!!"}];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
     }
 }
 

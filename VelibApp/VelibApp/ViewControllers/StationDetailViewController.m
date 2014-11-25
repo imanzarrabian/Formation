@@ -74,23 +74,26 @@
     BOOL isFavorite = self.station.user ? YES:NO;
     self.favButton.selected = isFavorite;
 
-    [self.favButton setTitle:@"Add to favs" forState:UIControlStateNormal];
+  /*  [self.favButton setTitle:@"Add to favs" forState:UIControlStateNormal];
     [self.favButton setTitle:@"Remove from favs" forState:UIControlStateSelected];
     [self.favButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    
-    [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.favButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];*/
 }
 
 - (IBAction)addOrRemoveToOrFromFavs:(id)sender {
     self.favButton.selected = !self.favButton.selected;
     AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
     if (self.favButton.selected) {
-        self.station.user = myApp.currentUser;
+        //self.station.user = myApp.currentUser;
+        //EQUIVALENT AU VU DE NOTRE SCHEMA COREDATA
+        [myApp.currentUser addFavorisObject:self.station];
     }
     else {
-        self.station.user = nil;
+        //self.station.user = nil;
+        //EQUIVALENT AU VU DE NOTRE SCHEMA COREDATA
+        [myApp.currentUser removeFavorisObject:self.station];
     }
-   // [myApp saveContext];
+    [self.delegate stationDetailViewController:self didAddOrRemoveToOrFromFavsStation:self.station];
 }
 
 - (void)checkLocationAuthorization:(NSNotification *)notification {

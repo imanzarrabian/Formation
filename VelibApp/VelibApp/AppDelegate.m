@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SDWebImageManager.h"
 #import <CoreData/CoreData.h>
+#import "GenericObject+AddOn.h"
 
 @interface AppDelegate ()
 
@@ -41,11 +42,8 @@
         return [url absoluteString];
     };
     
-    NSLog(@"STACK INITIALIZED %@", self.managedObjectContext);
-    
-     NSEntityDescription *userDescription = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-    
-    self.currentUser = [[User alloc] initWithEntity:userDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    self.currentUser = (User *)[User createOrGetObjectWithUniqueIdentifier:@(666)];
+    self.currentUser.email = @"iman@omts.fr";
     
     return YES;
 }
@@ -71,6 +69,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveContext];
 }
 
 

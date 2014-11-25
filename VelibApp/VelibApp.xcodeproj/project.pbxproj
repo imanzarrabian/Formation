@@ -32,6 +32,7 @@
 		9C077DBF1A238BCA00F41D7F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C077DBE1A238BCA00F41D7F /* User.m */; };
 		9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35718C1A1CE6D200F758E2 /* StationService.m */; };
 		9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */; };
+		9C9916701A24788500B1472C /* GenericObject+AddOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C99166F1A24788500B1472C /* GenericObject+AddOn.m */; };
 		9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE613E1A1A8C750030773B /* PageContentViewController.m */; };
 		9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */; };
 		9CC10E9E1A1B92550043D745 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC10E9D1A1B92550043D745 /* CoreLocation.framework */; };
@@ -109,6 +110,8 @@
 		9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesDefines.h; sourceTree = "<group>"; };
 		9C3AF5D31A1A7C8700297BD5 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageViewController.h; path = ViewControllers/PageViewController.h; sourceTree = "<group>"; };
 		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ViewControllers/PageViewController.m; sourceTree = "<group>"; };
+		9C99166E1A24788500B1472C /* GenericObject+AddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GenericObject+AddOn.h"; sourceTree = "<group>"; };
+		9C99166F1A24788500B1472C /* GenericObject+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GenericObject+AddOn.m"; sourceTree = "<group>"; };
 		9CBE613D1A1A8C750030773B /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		9CBE613E1A1A8C750030773B /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		9CC10E9A1A1B90F90043D745 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
@@ -217,9 +220,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		9C9916711A24792A00B1472C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9C077DAE1A2347E200F41D7F /* Station+AddOn.h */,
+				9C077DAF1A2347E200F41D7F /* Station+AddOn.m */,
+				9C99166E1A24788500B1472C /* GenericObject+AddOn.h */,
+				9C99166F1A24788500B1472C /* GenericObject+AddOn.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		9CC10E921A1B61F80043D745 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9C9916711A24792A00B1472C /* Categories */,
 				9C077DBD1A238BCA00F41D7F /* User.h */,
 				9C077DBE1A238BCA00F41D7F /* User.m */,
 				9C077DBA1A238BCA00F41D7F /* Station.h */,
@@ -227,8 +242,6 @@
 				9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */,
 				9C077DB11A2387F500F41D7F /* GenericObject.h */,
 				9C077DB21A2387F500F41D7F /* GenericObject.m */,
-				9C077DAE1A2347E200F41D7F /* Station+AddOn.h */,
-				9C077DAF1A2347E200F41D7F /* Station+AddOn.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,6 +460,7 @@
 				9C077D6A1A232C7900F41D7F /* UIImage+WebP.m in Sources */,
 				9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */,
 				9CFA204C1A1A45F50077C590 /* StationDetailViewController.m in Sources */,
+				9C9916701A24788500B1472C /* GenericObject+AddOn.m in Sources */,
 				9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */,
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
 				9C077DBC1A238BCA00F41D7F /* Station.m in Sources */,
