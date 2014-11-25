@@ -44,6 +44,7 @@
     
     self.currentUser = (User *)[User createOrGetObjectWithUniqueIdentifier:@(666)];
     self.currentUser.email = @"iman@omts.fr";
+    self.currentUser.name = @"Iman";
     
     return YES;
 }

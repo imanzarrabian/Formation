@@ -15,6 +15,7 @@
 @interface User : GenericObject
 
 @property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *favoris;
 @end
 

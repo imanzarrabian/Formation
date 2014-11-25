@@ -112,6 +112,7 @@
 		9C3AF5D41A1A7C8700297BD5 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ViewControllers/PageViewController.m; sourceTree = "<group>"; };
 		9C99166E1A24788500B1472C /* GenericObject+AddOn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GenericObject+AddOn.h"; sourceTree = "<group>"; };
 		9C99166F1A24788500B1472C /* GenericObject+AddOn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GenericObject+AddOn.m"; sourceTree = "<group>"; };
+		9C9916721A248DAD00B1472C /* VelibApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VelibApp 2.xcdatamodel"; sourceTree = "<group>"; };
 		9CBE613D1A1A8C750030773B /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		9CBE613E1A1A8C750030773B /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		9CC10E9A1A1B90F90043D745 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
@@ -706,9 +707,10 @@
 		9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9C9916721A248DAD00B1472C /* VelibApp 2.xcdatamodel */,
 				9C077DA91A23425300F41D7F /* VelibApp.xcdatamodel */,
 			);
-			currentVersion = 9C077DA91A23425300F41D7F /* VelibApp.xcdatamodel */;
+			currentVersion = 9C9916721A248DAD00B1472C /* VelibApp 2.xcdatamodel */;
 			path = VelibApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

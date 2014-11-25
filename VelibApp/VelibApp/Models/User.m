@@ -14,5 +14,6 @@
 
 @dynamic email;
 @dynamic favoris;
+@dynamic name;
 
 @end
