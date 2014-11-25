@@ -36,6 +36,17 @@
 		9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBE613E1A1A8C750030773B /* PageContentViewController.m */; };
 		9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */; };
 		9CC10E9E1A1B92550043D745 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC10E9D1A1B92550043D745 /* CoreLocation.framework */; };
+		9CF8F84D1A24B440009A224E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F83B1A24B440009A224E /* AFHTTPRequestOperation.m */; };
+		9CF8F84E1A24B440009A224E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F83D1A24B440009A224E /* AFHTTPRequestOperationManager.m */; };
+		9CF8F84F1A24B440009A224E /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F83F1A24B440009A224E /* AFHTTPSessionManager.m */; };
+		9CF8F8501A24B440009A224E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8421A24B440009A224E /* AFNetworkReachabilityManager.m */; };
+		9CF8F8511A24B440009A224E /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8441A24B440009A224E /* AFSecurityPolicy.m */; };
+		9CF8F8521A24B440009A224E /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8461A24B440009A224E /* AFURLConnectionOperation.m */; };
+		9CF8F8531A24B440009A224E /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8481A24B440009A224E /* AFURLRequestSerialization.m */; };
+		9CF8F8541A24B440009A224E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F84A1A24B440009A224E /* AFURLResponseSerialization.m */; };
+		9CF8F8551A24B440009A224E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F84C1A24B440009A224E /* AFURLSessionManager.m */; };
+		9CF8F8581A24B4BC009A224E /* VelibAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF8F8571A24B4BC009A224E /* VelibAPIClient.m */; };
+		9CF8F85A1A24C2AB009A224E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */; };
 		9CFA201E1A1A44FA0077C590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA201D1A1A44FA0077C590 /* main.m */; };
 		9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA20201A1A44FA0077C590 /* AppDelegate.m */; };
 		9CFA20271A1A44FA0077C590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA20251A1A44FA0077C590 /* Main.storyboard */; };
@@ -118,6 +129,28 @@
 		9CC10E9A1A1B90F90043D745 /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
 		9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
 		9CC10E9D1A1B92550043D745 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9CF8F83A1A24B440009A224E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		9CF8F83B1A24B440009A224E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		9CF8F83C1A24B440009A224E /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		9CF8F83D1A24B440009A224E /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		9CF8F83E1A24B440009A224E /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		9CF8F83F1A24B440009A224E /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		9CF8F8401A24B440009A224E /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		9CF8F8411A24B440009A224E /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		9CF8F8421A24B440009A224E /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		9CF8F8431A24B440009A224E /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		9CF8F8441A24B440009A224E /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		9CF8F8451A24B440009A224E /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		9CF8F8461A24B440009A224E /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		9CF8F8471A24B440009A224E /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		9CF8F8481A24B440009A224E /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		9CF8F8491A24B440009A224E /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		9CF8F84A1A24B440009A224E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		9CF8F84B1A24B440009A224E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		9CF8F84C1A24B440009A224E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		9CF8F8561A24B4BC009A224E /* VelibAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelibAPIClient.h; sourceTree = "<group>"; };
+		9CF8F8571A24B4BC009A224E /* VelibAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelibAPIClient.m; sourceTree = "<group>"; };
+		9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9CFA20181A1A44FA0077C590 /* VelibApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VelibApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFA201C1A1A44FA0077C590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFA201D1A1A44FA0077C590 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF8F85A1A24C2AB009A224E /* SystemConfiguration.framework in Frameworks */,
 				9C077DA71A2341C700F41D7F /* CoreData.framework in Frameworks */,
 				9CC10E9E1A1B92550043D745 /* CoreLocation.framework in Frameworks */,
 				9CFA20551A1A48CE0077C590 /* MapKit.framework in Frameworks */,
@@ -166,6 +200,7 @@
 		9C077D3B1A232C7900F41D7F /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				9CF8F8391A24B440009A224E /* AFNetworking */,
 				9C077D3C1A232C7900F41D7F /* SDWebImage */,
 			);
 			path = Lib;
@@ -217,6 +252,8 @@
 				9C35718B1A1CE6D200F758E2 /* StationService.h */,
 				9C35718C1A1CE6D200F758E2 /* StationService.m */,
 				9C35718E1A1CE71E00F758E2 /* ServicesDefines.h */,
+				9CF8F8561A24B4BC009A224E /* VelibAPIClient.h */,
+				9CF8F8571A24B4BC009A224E /* VelibAPIClient.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,9 +277,9 @@
 				9C077DBE1A238BCA00F41D7F /* User.m */,
 				9C077DBA1A238BCA00F41D7F /* Station.h */,
 				9C077DBB1A238BCA00F41D7F /* Station.m */,
-				9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */,
 				9C077DB11A2387F500F41D7F /* GenericObject.h */,
 				9C077DB21A2387F500F41D7F /* GenericObject.m */,
+				9C077DA81A23425300F41D7F /* VelibApp.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +291,32 @@
 				9CC10E9B1A1B90F90043D745 /* StationAnnotation.m */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		9CF8F8391A24B440009A224E /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9CF8F83A1A24B440009A224E /* AFHTTPRequestOperation.h */,
+				9CF8F83B1A24B440009A224E /* AFHTTPRequestOperation.m */,
+				9CF8F83C1A24B440009A224E /* AFHTTPRequestOperationManager.h */,
+				9CF8F83D1A24B440009A224E /* AFHTTPRequestOperationManager.m */,
+				9CF8F83E1A24B440009A224E /* AFHTTPSessionManager.h */,
+				9CF8F83F1A24B440009A224E /* AFHTTPSessionManager.m */,
+				9CF8F8401A24B440009A224E /* AFNetworking.h */,
+				9CF8F8411A24B440009A224E /* AFNetworkReachabilityManager.h */,
+				9CF8F8421A24B440009A224E /* AFNetworkReachabilityManager.m */,
+				9CF8F8431A24B440009A224E /* AFSecurityPolicy.h */,
+				9CF8F8441A24B440009A224E /* AFSecurityPolicy.m */,
+				9CF8F8451A24B440009A224E /* AFURLConnectionOperation.h */,
+				9CF8F8461A24B440009A224E /* AFURLConnectionOperation.m */,
+				9CF8F8471A24B440009A224E /* AFURLRequestSerialization.h */,
+				9CF8F8481A24B440009A224E /* AFURLRequestSerialization.m */,
+				9CF8F8491A24B440009A224E /* AFURLResponseSerialization.h */,
+				9CF8F84A1A24B440009A224E /* AFURLResponseSerialization.m */,
+				9CF8F84B1A24B440009A224E /* AFURLSessionManager.h */,
+				9CF8F84C1A24B440009A224E /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		9CFA200F1A1A44FA0077C590 = {
@@ -299,6 +362,7 @@
 		9CFA201B1A1A44FA0077C590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9CF8F8591A24C2AB009A224E /* SystemConfiguration.framework */,
 				9C077DA61A2341C700F41D7F /* CoreData.framework */,
 				9CC10E9D1A1B92550043D745 /* CoreLocation.framework */,
 				9CFA20541A1A48CE0077C590 /* MapKit.framework */,
@@ -460,20 +524,26 @@
 				9CFA20531A1A48470077C590 /* InfosViewController.m in Sources */,
 				9C077D6A1A232C7900F41D7F /* UIImage+WebP.m in Sources */,
 				9CC10E9C1A1B90F90043D745 /* StationAnnotation.m in Sources */,
+				9CF8F8551A24B440009A224E /* AFURLSessionManager.m in Sources */,
+				9CF8F84F1A24B440009A224E /* AFHTTPSessionManager.m in Sources */,
 				9CFA204C1A1A45F50077C590 /* StationDetailViewController.m in Sources */,
 				9C9916701A24788500B1472C /* GenericObject+AddOn.m in Sources */,
 				9CBE613F1A1A8C750030773B /* PageContentViewController.m in Sources */,
+				9CF8F8531A24B440009A224E /* AFURLRequestSerialization.m in Sources */,
 				9CFA20591A1A53CD0077C590 /* StationTableViewCell.m in Sources */,
+				9CF8F8511A24B440009A224E /* AFSecurityPolicy.m in Sources */,
 				9C077DBC1A238BCA00F41D7F /* Station.m in Sources */,
 				9C3AF5D51A1A7C8700297BD5 /* PageViewController.m in Sources */,
 				9C077D641A232C7900F41D7F /* SDWebImageDownloaderOperation.m in Sources */,
 				9C35718D1A1CE6D200F758E2 /* StationService.m in Sources */,
+				9CF8F8521A24B440009A224E /* AFURLConnectionOperation.m in Sources */,
 				9C077D601A232C7900F41D7F /* SDImageCache.m in Sources */,
 				9CFA20211A1A44FA0077C590 /* AppDelegate.m in Sources */,
 				9C077D611A232C7900F41D7F /* SDWebImageCompat.m in Sources */,
 				9C077DAA1A23425300F41D7F /* VelibApp.xcdatamodeld in Sources */,
 				9C077D5F1A232C7900F41D7F /* NSData+ImageContentType.m in Sources */,
 				9CFA20501A1A47570077C590 /* MapViewController.m in Sources */,
+				9CF8F8581A24B4BC009A224E /* VelibAPIClient.m in Sources */,
 				9C077DBF1A238BCA00F41D7F /* User.m in Sources */,
 				9C077D651A232C7900F41D7F /* SDWebImageManager.m in Sources */,
 				9C077D631A232C7900F41D7F /* SDWebImageDownloader.m in Sources */,
@@ -488,7 +558,11 @@
 				9C077D621A232C7900F41D7F /* SDWebImageDecoder.m in Sources */,
 				9C077DB01A2347E200F41D7F /* Station+AddOn.m in Sources */,
 				9C077D6D1A232C7900F41D7F /* UIView+WebCacheOperation.m in Sources */,
+				9CF8F8501A24B440009A224E /* AFNetworkReachabilityManager.m in Sources */,
 				9C077DB31A2387F500F41D7F /* GenericObject.m in Sources */,
+				9CF8F84E1A24B440009A224E /* AFHTTPRequestOperationManager.m in Sources */,
+				9CF8F8541A24B440009A224E /* AFURLResponseSerialization.m in Sources */,
+				9CF8F84D1A24B440009A224E /* AFHTTPRequestOperation.m in Sources */,
 				9CFA204D1A1A45F50077C590 /* StationsListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

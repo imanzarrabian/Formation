@@ -20,6 +20,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSURLSessionDataTask *currentTask;
 
 @end
 
@@ -29,6 +30,8 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:REACHABILITY_CHANGED object:nil];
 
     [self reloadRemoteData];
     [self reloadLocalDataAndReloadView];
@@ -42,6 +45,13 @@
     });
     
     [self reloadLocalDataAndReloadView];
+}
+
+
+- (void)reachabilityChanged:(NSNotification *)notification {
+    NSString *message = [NSString stringWithFormat:@"%ld",[notification.userInfo[@"status"] integerValue]];
+   /* UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"CHANGED" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alertView show];*/
 }
 
 - (void)createPullToRefreshControl {
@@ -77,7 +87,10 @@
 }
 
 - (void)reloadRemoteData {
-    [[[StationService alloc] init] getStationsFromAPI];
+    if (self.currentTask.state == NSURLSessionTaskStateRunning) {
+        [self.currentTask cancel];
+    }
+    self.currentTask = [[[StationService alloc] init] getStationsFromAPI];
 }
 
 #pragma mark - UITableViewDataSource methods

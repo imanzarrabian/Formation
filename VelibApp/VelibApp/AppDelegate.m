@@ -10,7 +10,7 @@
 #import "SDWebImageManager.h"
 #import <CoreData/CoreData.h>
 #import "GenericObject+AddOn.h"
-
+#import "VelibAPIClient.h"
 @interface AppDelegate ()
 
 
@@ -46,6 +46,7 @@
     self.currentUser.email = @"iman@omts.fr";
     self.currentUser.name = @"Iman";
     
+
     return YES;
 }
 

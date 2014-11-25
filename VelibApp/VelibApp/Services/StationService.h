@@ -11,6 +11,6 @@
 @interface StationService : NSObject
 
 
-- (void)getStationsFromAPI;
+- (NSURLSessionDataTask *)getStationsFromAPI;
 
 @end

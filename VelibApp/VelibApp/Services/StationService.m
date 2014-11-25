@@ -12,50 +12,49 @@
 #import "Station+AddOn.h"
 #import "AppDelegate.h"
 #import "GenericObject+AddOn.h"
+#import "VelibAPIClient.h"
 
 @implementation StationService
 
-- (void)getStationsFromAPI {
-    NSString *stationsListURL = [NSString stringWithFormat:@"%@/vls/v1/stations?contract=%@&apiKey=%@", API_BASE_URL, API_CONTRACT_NAME, API_KEY];
-    
+- (NSURLSessionDataTask *)getStationsFromAPI {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:stationsListURL]
-                                        completionHandler:^(NSData *data,
-                                                            NSURLResponse *response,
-                                                            NSError *error) {
-                                            [self handleGetStationReturn:data];
-                                        }];
-    [task resume];
+    
+    NSDictionary *params = @{@"contract":API_CONTRACT_NAME,@"apiKey":API_KEY};
+    
+    return [[VelibAPIClient sharedAPIClient] GET:@"/vls/v1/stations" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+
+        [self handleGetStationReturn:responseObject];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"WE FAILLED %@",error);
+        [VelibAPIClient handleError:error withDisplayBlock:^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Ooops" message:@"AIEEE" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:STATIONS_LIST_RECEIVED object:nil userInfo:@{@"error":@"TO BE HANDLED!!"}];
+    }];
 }
 
 
 
 #pragma mark - private helper methods
-- (NSArray *)buildStationsListFromJSONData:(NSData*)data {
-    NSArray *stationsArrayFromJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    
-    if (!stationsArrayFromJSON) {
-        [NSException raise:@"JSON parsing error" format:@"Impossible to parse %@", data.description];
-    }
+- (NSArray *)buildStationsListFromJSONData:(id)stationsArrayFromJSON {
     
     if ([stationsArrayFromJSON isKindOfClass:[NSArray class]]) {
         NSMutableArray *stations = [[NSMutableArray alloc] init];
         
         AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            for (NSDictionary * station in stationsArrayFromJSON) {
-                
-                //Creating station or getting an existing one
-                Station *newStation = (Station *)[Station createOrGetObjectWithUniqueIdentifier:station[@"number"]];
-                
-                //updating station data in all cases
-                [newStation fillWithHash:station];
-            }
+        for (NSDictionary * station in stationsArrayFromJSON) {
+            //Creating station or getting an existing one
+            Station *newStation = (Station *)[Station createOrGetObjectWithUniqueIdentifier:station[@"number"]];
             
-            //Finally saving context after the for loop
-            [myApp saveContext];
-        });
+            //updating station data in all cases
+            [newStation fillWithHash:station];
+        }
+        
+        //Finally saving context after the for loop
+        [myApp saveContext];
         
         return stations;
     }
@@ -63,7 +62,7 @@
 }
 
 
-- (void)handleGetStationReturn:(NSData *)data {
+- (void)handleGetStationReturn:(id)data {
     // init content
     NSArray *stations = [self buildStationsListFromJSONData:data];
     if (stations) {
