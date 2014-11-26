@@ -45,9 +45,16 @@
     self.currentUser = (User *)[User createOrGetObjectWithUniqueIdentifier:@(666)];
     self.currentUser.email = @"iman@omts.fr";
     self.currentUser.name = @"Iman";
-    
 
+    [self customizeUIComponents];
+    
     return YES;
+}
+
+- (void)customizeUIComponents {
+    UIColor *greenColor = [UIColor colorWithRed:122/255.0 green:1 blue:225/255.0 alpha:1.0];
+    
+    [[UINavigationBar appearance] setBarTintColor:greenColor];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

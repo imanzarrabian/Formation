@@ -31,7 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
 
+    
     self.segmentedControl.selectedSegmentIndex = 0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
 
@@ -117,7 +119,6 @@
     cell.stationName.text = currentStation.name;
 
 
-    
     cell.stationNbBikes.text = [NSString stringWithFormat:@"%ld bikes available",[currentStation.nbBikeAvailable integerValue]];
     
     cell.stationNbStands.text = [NSString stringWithFormat:@"%ld stands available",[currentStation.nbStandAvailable integerValue]];

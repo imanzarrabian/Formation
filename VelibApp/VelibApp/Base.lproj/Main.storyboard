@@ -21,6 +21,8 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUD-S7-dcx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.47885939242673192" green="1" blue="0.88280090561369096" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="4wN-tb-rcP">
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="VYv-Xd-f75">
