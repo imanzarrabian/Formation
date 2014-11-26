@@ -16,6 +16,9 @@
 		9CB9EDBC1A25CB87002DF492 /* CameraTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9EDBB1A25CB87002DF492 /* CameraTestTests.m */; };
 		9CB9EDC61A25CD78002DF492 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9EDC51A25CD78002DF492 /* MobileCoreServices.framework */; };
 		9CB9EDC91A25D335002DF492 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9EDC81A25D335002DF492 /* CameraVC.m */; };
+		9CB9EDCB1A25D62F002DF492 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9EDCA1A25D62F002DF492 /* AVFoundation.framework */; };
+		9CB9EDCD1A25DBEC002DF492 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9EDCC1A25DBEC002DF492 /* CoreGraphics.framework */; };
+		9CB9EDCF1A25DC5B002DF492 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB9EDCE1A25DC5B002DF492 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		9CB9EDC51A25CD78002DF492 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9CB9EDC71A25D335002DF492 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
 		9CB9EDC81A25D335002DF492 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
+		9CB9EDCA1A25D62F002DF492 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9CB9EDCC1A25DBEC002DF492 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CB9EDCE1A25DC5B002DF492 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB9EDCF1A25DC5B002DF492 /* ImageIO.framework in Frameworks */,
+				9CB9EDCD1A25DBEC002DF492 /* CoreGraphics.framework in Frameworks */,
+				9CB9EDCB1A25D62F002DF492 /* AVFoundation.framework in Frameworks */,
 				9CB9EDC61A25CD78002DF492 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +113,9 @@
 		9CB9ED9F1A25CB87002DF492 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9CB9EDCE1A25DC5B002DF492 /* ImageIO.framework */,
+				9CB9EDCC1A25DBEC002DF492 /* CoreGraphics.framework */,
+				9CB9EDCA1A25D62F002DF492 /* AVFoundation.framework */,
 				9CB9EDC51A25CD78002DF492 /* MobileCoreServices.framework */,
 				9CB9EDA01A25CB87002DF492 /* Info.plist */,
 				9CB9EDA11A25CB87002DF492 /* main.m */,
@@ -422,6 +434,7 @@
 				9CB9EDC11A25CB87002DF492 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CB9EDC21A25CB87002DF492 /* Build configuration list for PBXNativeTarget "CameraTestTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +443,7 @@
 				9CB9EDC41A25CB87002DF492 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

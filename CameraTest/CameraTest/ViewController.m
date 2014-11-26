@@ -34,6 +34,9 @@
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.imagePicker.showsCameraControls = NO;
+
         self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
 
         NSArray *availableMediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -48,16 +51,39 @@
 }
 
 - (IBAction)displayCamera:(id)sender {
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    //[self presentViewController:self.imagePicker animated:YES completion:nil];
+    [self addChildViewController:self.imagePicker];
+    [self.view addSubview:self.imagePicker.view];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIView *viewToAdd = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, self.view.frame.size.height/2, 30.0, 30.0)];
+        viewToAdd.backgroundColor = [UIColor redColor];
+        
+        [self.view addSubview:viewToAdd];
+        
+        [UIView animateWithDuration:6.0 animations:^{
+            viewToAdd.frame = CGRectOffset(viewToAdd.frame, -self.view.frame.size.width, 0);
+        }];
+    });
+    
 }
 
 
 #pragma mark - UIImagPickerControllerDelegate methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [self.imagePicker dismissViewControllerAnimated:YES completion:^{
-        self.resultView.image = info[UIImagePickerControllerEditedImage];
+    self.resultView.image = info[UIImagePickerControllerEditedImage];
 
-    }];
+//    [self.imagePicker dismissViewControllerAnimated:YES completion:^{
+//    }];
+    
+    [self.imagePicker removeFromParentViewController];
+    [self.imagePicker.view removeFromSuperview];
+
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self.imagePicker removeFromParentViewController];
+    [self.imagePicker.view removeFromSuperview];
 }
 @end

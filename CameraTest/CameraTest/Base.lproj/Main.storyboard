@@ -70,12 +70,12 @@
                                 <exclude reference="rAW-U6-i0q"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="s2s-WM-L9u"/>
-                                <exclude reference="vkH-PM-aYO"/>
                                 <exclude reference="1cv-rQ-zdy"/>
                                 <exclude reference="xcJ-gF-hkx"/>
                                 <exclude reference="Baf-MF-982"/>
                                 <exclude reference="beV-nV-aiH"/>
+                                <exclude reference="s2s-WM-L9u"/>
+                                <exclude reference="vkH-PM-aYO"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -85,12 +85,12 @@
                                 <include reference="rAW-U6-i0q"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="s2s-WM-L9u"/>
-                                <include reference="vkH-PM-aYO"/>
                                 <include reference="1cv-rQ-zdy"/>
                                 <include reference="xcJ-gF-hkx"/>
                                 <include reference="Baf-MF-982"/>
                                 <include reference="beV-nV-aiH"/>
+                                <include reference="s2s-WM-L9u"/>
+                                <include reference="vkH-PM-aYO"/>
                             </mask>
                         </variation>
                     </view>
@@ -110,6 +110,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zmL-JX-QWa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c77-3g-OSh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeN-bg-zsr">
@@ -144,35 +145,110 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTp-gu-trY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="9u8-Qr-522"/>
+                                    <constraint firstAttribute="height" constant="30" id="LAl-aO-vnu"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9u8-Qr-522"/>
+                                        <exclude reference="LAl-aO-vnu"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9u8-Qr-522"/>
+                                        <include reference="LAl-aO-vnu"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="startCamera:" destination="qUr-dC-4ny" eventType="touchUpInside" id="Lxb-Tf-z9R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDq-q1-vic">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PLa-rf-Rg6"/>
+                                    <constraint firstAttribute="width" constant="41" id="Z84-0h-DQa"/>
+                                </constraints>
+                                <state key="normal" title="Shoot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PLa-rf-Rg6"/>
+                                        <exclude reference="Z84-0h-DQa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="PLa-rf-Rg6"/>
+                                        <include reference="Z84-0h-DQa"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="shootPhoto:" destination="qUr-dC-4ny" eventType="touchUpInside" id="wMj-Nq-yzj"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q4Y-eU-l4u">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="308" y="44" width="76" height="128"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FDq-q1-vic" firstAttribute="top" secondItem="zTp-gu-trY" secondAttribute="bottom" constant="8" id="8gr-1R-FeP"/>
+                            <constraint firstItem="zTp-gu-trY" firstAttribute="top" secondItem="U7i-PF-TEm" secondAttribute="bottom" constant="20" id="BJf-Qh-t1H"/>
                             <constraint firstAttribute="centerY" secondItem="U7i-PF-TEm" secondAttribute="centerY" id="DlM-cy-RGN"/>
+                            <constraint firstAttribute="centerX" secondItem="FDq-q1-vic" secondAttribute="centerX" id="l1g-DG-0fC"/>
+                            <constraint firstAttribute="centerX" secondItem="zTp-gu-trY" secondAttribute="centerX" id="svc-pb-mQN"/>
                             <constraint firstAttribute="centerX" secondItem="U7i-PF-TEm" secondAttribute="centerX" id="tNY-W2-Tw7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="CeN-bg-zsr"/>
                                 <exclude reference="U7i-PF-TEm"/>
+                                <exclude reference="zTp-gu-trY"/>
+                                <exclude reference="FDq-q1-vic"/>
+                                <exclude reference="q4Y-eU-l4u"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="DlM-cy-RGN"/>
                                 <exclude reference="tNY-W2-Tw7"/>
+                                <exclude reference="BJf-Qh-t1H"/>
+                                <exclude reference="svc-pb-mQN"/>
+                                <exclude reference="8gr-1R-FeP"/>
+                                <exclude reference="l1g-DG-0fC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="CeN-bg-zsr"/>
                                 <include reference="U7i-PF-TEm"/>
+                                <include reference="zTp-gu-trY"/>
+                                <include reference="FDq-q1-vic"/>
+                                <include reference="q4Y-eU-l4u"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="DlM-cy-RGN"/>
                                 <include reference="tNY-W2-Tw7"/>
+                                <include reference="BJf-Qh-t1H"/>
+                                <include reference="svc-pb-mQN"/>
+                                <include reference="8gr-1R-FeP"/>
+                                <include reference="l1g-DG-0fC"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="cameraVew" destination="U7i-PF-TEm" id="wFo-AU-VUt"/>
+                        <outlet property="resultImageView" destination="q4Y-eU-l4u" id="ta6-t5-HAj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwk-qs-kXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
