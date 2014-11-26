@@ -455,11 +455,20 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="zLM-y2-T8j">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Info" id="YBZ-O4-6xy">
                             <connections>
                                 <segue destination="eSR-4X-FcA" kind="presentation" id="37h-GQ-Bje"/>
                             </connections>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="LXO-ds-wAo">
+                            <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Favs"/>
+                            </segments>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="4wI-Uh-hJl">
                             <connections>
                                 <segue destination="lDw-6F-vmn" kind="presentation" modalTransitionStyle="flipHorizontal" id="ie9-7v-Y7l"/>
