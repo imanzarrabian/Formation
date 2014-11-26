@@ -21,6 +21,9 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSURLSessionDataTask *currentTask;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) NSArray *allStations;
+@property (nonatomic, strong) NSArray *favsStations;
 
 @end
 
@@ -29,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.segmentedControl.selectedSegmentIndex = 0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stationsReceived:) name:STATIONS_LIST_RECEIVED object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:REACHABILITY_CHANGED object:nil];
@@ -71,7 +75,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[self.tableView reloadData];
+    [self segmentedValueChanged:self.segmentedControl];
 }
 
 - (void)reloadLocalDataAndReloadView {
@@ -81,8 +85,9 @@
     //Adding predicate to filter data on name containing 'Alexandre'
     //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[c] %@",@"Alexandre"];
     
-    self.stationArray = [Station fetchStationsWithSortDescriptors:@[sortDescriptor] andPredicate:nil];
+    self.allStations = [Station fetchStationsWithSortDescriptors:@[sortDescriptor] andPredicate:nil];
     
+    [self segmentedValueChanged:self.segmentedControl];
     [self.tableView reloadData];
 }
 
@@ -169,7 +174,24 @@
     }
 
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
 
+
+- (IBAction)segmentedValueChanged:(id)sender {
+    UISegmentedControl *segmented = (UISegmentedControl *)sender;
+    AppDelegate *myApp = [[UIApplication sharedApplication] delegate];
+    switch (segmented.selectedSegmentIndex) {
+        case 0:
+            self.stationArray = self.allStations;
+            break;
+        case 1:
+            self.favsStations = [myApp.currentUser.favoris allObjects];
+            self.stationArray = self.favsStations;
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
 }
 
 @end

@@ -468,6 +468,9 @@
                                 <segment title="All"/>
                                 <segment title="Favs"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="6K9-dz-8SC"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="4wI-Uh-hJl">
                             <connections>
@@ -476,12 +479,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentedControl" destination="LXO-ds-wAo" id="RXi-vb-Bh8"/>
                         <outlet property="tableView" destination="RKg-9W-uxJ" id="5QV-5e-bpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257" y="285.75"/>
+            <point key="canvasLocation" x="1246.5" y="249.75"/>
         </scene>
         <!--Station Detail View Controller-->
         <scene sceneID="2e4-Vq-Tid">
