@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZ5-1b-GAs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayCamera:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VLp-cb-anR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osd-NY-GcZ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="HeR-0o-hEi"/>
+                                    <constraint firstAttribute="width" constant="240" id="dKD-CM-8BQ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HeR-0o-hEi"/>
+                                        <exclude reference="dKD-CM-8BQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="HeR-0o-hEi"/>
+                                        <include reference="dKD-CM-8BQ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAW-U6-i0q">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="AVFOUNDATION">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="qUr-dC-4ny" kind="presentation" id="TxQ-Uv-l2e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="eZ5-1b-GAs" secondAttribute="centerX" id="1cv-rQ-zdy"/>
+                            <constraint firstItem="rAW-U6-i0q" firstAttribute="top" secondItem="eZ5-1b-GAs" secondAttribute="bottom" constant="16" id="Baf-MF-982"/>
+                            <constraint firstAttribute="centerX" secondItem="rAW-U6-i0q" secondAttribute="centerX" id="beV-nV-aiH"/>
+                            <constraint firstItem="osd-NY-GcZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="44" id="s2s-WM-L9u"/>
+                            <constraint firstAttribute="centerX" secondItem="osd-NY-GcZ" secondAttribute="centerX" id="vkH-PM-aYO"/>
+                            <constraint firstAttribute="centerY" secondItem="eZ5-1b-GAs" secondAttribute="centerY" id="xcJ-gF-hkx"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="eZ5-1b-GAs"/>
+                                <exclude reference="osd-NY-GcZ"/>
+                                <exclude reference="rAW-U6-i0q"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="s2s-WM-L9u"/>
+                                <exclude reference="vkH-PM-aYO"/>
+                                <exclude reference="1cv-rQ-zdy"/>
+                                <exclude reference="xcJ-gF-hkx"/>
+                                <exclude reference="Baf-MF-982"/>
+                                <exclude reference="beV-nV-aiH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="eZ5-1b-GAs"/>
+                                <include reference="osd-NY-GcZ"/>
+                                <include reference="rAW-U6-i0q"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="s2s-WM-L9u"/>
+                                <include reference="vkH-PM-aYO"/>
+                                <include reference="1cv-rQ-zdy"/>
+                                <include reference="xcJ-gF-hkx"/>
+                                <include reference="Baf-MF-982"/>
+                                <include reference="beV-nV-aiH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="resultView" destination="osd-NY-GcZ" id="5d5-Td-h9c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--CameraVC-->
+        <scene sceneID="kvQ-Ku-gTX">
+            <objects>
+                <viewController id="qUr-dC-4ny" customClass="CameraVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UBl-w0-N9a"/>
+                        <viewControllerLayoutGuide type="bottom" id="zmL-JX-QWa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c77-3g-OSh">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeN-bg-zsr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="20" width="37" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="dismissVC:" destination="qUr-dC-4ny" eventType="touchUpInside" id="o6V-zd-uTf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7i-PF-TEm" userLabel="Camera View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.2507724044680405" green="1" blue="0.74530181487282832" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="LE3-9J-5JX"/>
+                                    <constraint firstAttribute="height" constant="300" id="clo-QQ-C6H"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LE3-9J-5JX"/>
+                                        <exclude reference="clo-QQ-C6H"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="LE3-9J-5JX"/>
+                                        <include reference="clo-QQ-C6H"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="U7i-PF-TEm" secondAttribute="centerY" id="DlM-cy-RGN"/>
+                            <constraint firstAttribute="centerX" secondItem="U7i-PF-TEm" secondAttribute="centerX" id="tNY-W2-Tw7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CeN-bg-zsr"/>
+                                <exclude reference="U7i-PF-TEm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="DlM-cy-RGN"/>
+                                <exclude reference="tNY-W2-Tw7"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="CeN-bg-zsr"/>
+                                <include reference="U7i-PF-TEm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="DlM-cy-RGN"/>
+                                <include reference="tNY-W2-Tw7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="cameraVew" destination="U7i-PF-TEm" id="wFo-AU-VUt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwk-qs-kXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="255" y="1075"/>
+        </scene>
+    </scenes>
+</document>
